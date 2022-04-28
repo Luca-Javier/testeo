@@ -1,30 +1,35 @@
-# This is a basic workflow that is manually triggered
+name: CI
 
-name: Manual workflow
+on: [push]
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+ 
+      
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  build2: 
+    name: ahrr
+    runs-on: ubuntu-lastest
+
+    
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+
+    
+    - name: echo a string
+      run: echo "hello world"
+    - name: pwd (direcicon donde trabajamos)
+      run: pwd 
+    - name: cd (comanndo para movernos)
+      run: cd /home/runner/work/Javier6-11-
+    - name: cat (crea archivos)
+      run: cat > ComandosLinux.txt
+    - name: mkdir (crea carpetas)
+      run: mkdir -p Comandos/etc
+    - name: cp (copia un archivo a una ubicacion)
+      run: cp ComandosLinux.txt /home/runner/work/Javier6-11-/Comandos
+    - name: mv (mueve un archivo a una ubicacion)
+      run: mv ComandosLinux.txt /home/runner/work/Javier6-11-/etc
+    - name: ls (lista los archivos que hay donde estamos)
+      run: ls /home/runner/work/Javier6-11-/etc
+    - name: tail (muestras la ultimas lineas de nuestro archivo)
+      run: tail /home/runner/work/Javier6-11-/Comandos
