@@ -1,18 +1,9 @@
 on: push
 name: build2
-
-
 jobs:
- 
-      
-
   build2: 
     name: ahrr
-    runs-on: ubuntu-lastest
-
-    
+    runs-on: ubuntu-lastest 
     steps:
-
-    
     - name: echo a string
       run: pwd
