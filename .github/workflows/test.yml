@@ -1,9 +1,13 @@
-on: push
-name: build2
+name: testeo
+
+on:
+  push:
+    branches:
+      - main
+    
 jobs:
-  build2: 
-    name: ahrr
-    runs-on: ubuntu-lastest 
-    steps:
-    - name: echo a string
-      run: pwd
+  miTest:
+    runs-on: ubuntu-lastest
+    steps: 
+      -name: hola
+       run: echo "hola"
