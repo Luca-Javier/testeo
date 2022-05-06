@@ -1,0 +1,17 @@
+div{
+  text-align: center;
+}
+.title{
+  background-color: #ffffff;
+  border: 3px solid;
+  border-color: black;
+  padding: 3rem;
+}
+input#color{
+  margin: 1rem;
+
+}
+#contenedor{
+  text-align: center;
+  border: hidden;
+}
