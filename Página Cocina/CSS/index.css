@@ -1,26 +1,15 @@
 *{
-    margin: 0 0;
+  margin: 0;
 }
-.first-header{
-    background-color: orange;
-    height: 100px;
-    width: 100vw;
-    top:-0px;
-    position: relative;
+.first-image{
+  /* top: -100px; */
+  height: 400px;
+  width: 100vw;
+  background: url("../Imagenes/comida2.jpg") 100vw -80px;
+  
 }
-.title-main{
-    font-size: 3em;
-    left: auto;
-    margin: 0 auto;
-    position: absolute;
-    top:0;
-}
-.nav-main >*{
-    position: absolute;
-    bottom: 0px;
-    margin: auto 0;
-}
-.article-nav >*{
-    
-    margin: 0 auto;
+.first-conteiner{
+ 
+  background-color: coral;
+  
 }
