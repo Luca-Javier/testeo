@@ -1,0 +1,27 @@
+*{
+    margin: 0 0;
+}
+.title-main{
+    font-size: 3em;
+    left: auto;
+    top: auto;
+    
+
+    position: absolute;
+    top:0;
+}
+.first-header{
+    background-color: orange;
+    height: 100px;
+    width: 100vw;
+    margin: 0 auto;
+    position: relative;
+}
+.nav-main >*{
+    position: absolute;
+    bottom: 0px;
+}
+.article-nav >*{
+    
+    margin: 0 auto;
+}
