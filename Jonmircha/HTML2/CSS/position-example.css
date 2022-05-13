@@ -1,0 +1,73 @@
+body{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  /* padding-top:50px ; */ /* el tamaño de la cabecera */
+}
+.header{
+  background-color: mediumseagreen;
+  width: 100%;
+  height: 50px;
+  top: 0;
+}
+.fixed-top{
+  top: 0;
+  position: fixed;
+}
+.sticky-top{
+  top: 0;
+  /* left: 80vw; */
+  right: 0; /* NO SE PORQUE NO ANDA ESTO */
+  position: sticky;
+  background-color: blueviolet;
+  width: 100%;
+  height: 50px;
+  display: inline-block;
+}
+/* no entendi pero en conclusion para una cebera sticky le gana a un fixed que empieza desde arriba */
+/* si uso el fixed, como que queda flotante entonces tengo el que hacer el padding top. Con sticky me lo ahorro */
+/* aparte con el fixed no podría hacer el efecto de que escrolleando para abajo la pagina agarra la caja (es un efecto de cabera re piola encima) */
+.hero-image{
+  width: 100vw;
+  height: 100vh;
+  background-color: cadetblue; /* hay que sacar el padding top */
+}
+/* secciones */
+.slide{
+  background-color:mediumturquoise;
+  margin: 0 auto;
+}
+.slide:nth-child(odd){ /* no me acuerdo bien esto, tengo que repasar con urgencia los selectores */
+  background-color:cadetblue;
+  margin: 0 auto;
+}
+.slide-content>*{
+  margin: 0 auto;
+}
+.slide-title{
+  background-color:midnightblue;
+  color: rgb(197, 205, 207);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+  margin-top: 0; /* ejecto de empuje */
+}
+.modal-window{
+  background-color: maroon;
+  position: fixed;
+  width: 100vw;
+  height: 100vh; /* si comento lo de abajo(las posiciones de la caja), todo desaparece, no se por que */
+
+  opacity: 0.5; /* si pongo will-change:transform: ; en el body se arregla, parece que es un solucionador de errores pero sacrifica ram */
+  /* averiguar porque necesito el will-change: transform; */
+  top:0; 
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* display: none; */
+
+ 
+}
+.modal-window:target{
+  display: block;
+}

@@ -56,8 +56,8 @@ h1{
   position: fixed;
   width: 100px; /*  lo ignora */ /* tipo display inline */
   height: 2em; /* no ignora */
-  bottom: 0;
-  right: 80px;
+  bottom: 0; 
+  right: 80px; 
 }
 /* #dato: entre 2 cajas que se superponen, sobre sale la que no es static */
 .stickyBox{ /* puede ser contenido en una caja o en el documento HTML */
@@ -83,12 +83,11 @@ border: thin solid black;
 height: 100px;
 width: 150px;
 position: relative;
-
 }
 .test1-index-z{
-
+  z-index: 999;  /* cambiar a 3 para tapar  */
 }
 .test2-index-z{
-  top: -50;
-  z-index: 3;
+  top: -50px;
+  z-index: 4;
 }
