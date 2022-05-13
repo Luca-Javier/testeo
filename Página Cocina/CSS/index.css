@@ -5,11 +5,40 @@
   /* top: -100px; */
   height: 400px;
   width: 100vw;
-  background: url("../Imagenes/comida2.jpg") 100vw -80px;
-  
+  background: url("../Imagenes/comida2.jpg") 100px -80px;
+
+
 }
 .first-conteiner{
- 
+  position: sticky;
   background-color: coral;
+  top: 0;
   
+}
+.miNav >*{
+display: inline-block;
+padding:  0 10vw;
+margin: 0 auto;
+border: 1px solid black;
+
+
+}
+.miNav >*:hover{
+  background-color: brown;
+ 
+}
+.miNav a{
+  text-decoration: none;
+  color: black;
+}
+header.first-conteiner h1{
+  text-align: center;
+}
+/* testeo abajo */
+.link-nav-test{
+  /* padding:0 10vw; */
+  left: auto;
+  right: auto;
+  border: thin solid black;
+  display: inline-block;
 }
