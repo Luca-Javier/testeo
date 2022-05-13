@@ -1,0 +1,130 @@
+.universal * {
+  font-size: 2em;
+  
+}
+/* .form *:required{
+  border-color: red;
+} */
+.form *:valid{
+  border-color: green;
+}
+.form *:invalid {
+  border-color: yellow;
+}
+.form *:focus{
+ background-color: purple;
+}
+
+/* no anda abajo */
+.form *:disabled{
+  background-color: greenyellow;
+}
+
+
+.movimiento a:hover{
+  background-color: rgb(138, 52, 2);
+}
+
+.movimiento a:visited{
+  background-color: pink;
+}
+.miP:hover{
+  font-size: 2em;
+}
+#abajo:target{
+  background-color: green;
+}
+#abajo2:target {
+  background-color: green;
+}
+.miLista li:first-child{
+  background-color: green;
+}
+.miLista li:last-child {
+  background-color: green;
+}
+.miLista li:nth-child(2n + 3) {
+  background-color: purple;
+}
+.articulo p:first-of-type{
+  background-color: pink;
+}
+/* block = toda una linea.   inline = en la misma linea. Osea al final inline es todo lo que enter en una linea y en block es todo una linea por elemento */
+.articulo p:last-of-type {
+  display: block;
+  background-color: pink;
+}
+.articulo p:nth-of-type(2n) {
+  background-color: red;
+}
+.articulo *:not(p){
+  color: blueviolet;
+}
+.articulo input:default{
+  background-color: blue;
+  color: red; 
+}
+.precio::before{
+  content: " $";
+  color: green;
+}
+.guitarra::after{
+  content: " parquer";
+}
+.i::first-letter{
+  font-size: 2em;
+  font-weight: bold;
+}
+.lorem::first-line{
+  color: coral;
+}
+.lorem::selection{
+  background-color: black;
+  color: greenyellow;
+}
+input[placeholder="escribi tu nombre"]::placeholder{
+  color: green;
+  background-color: black;
+}
+input[placeholder="escribi tu nombre"]{
+  background-color: green;
+}
+.form-selectores input[placeholder*="escribi"], textarea{
+  border-color: yellow;
+  background-color: black;
+  font-size: 20px;
+  display: block;
+} 
+blockquote.cita#miCita{
+  background-color: yellow;
+  color: coral;
+}
+#miCita{
+  background-color: green;
+}
+blockquote.cita{
+  background-color: brown;
+}
+cite{
+  background-color: rgb(79, 161, 228);
+}
+blockquote{
+  background-color: coral;
+}
+.cita{
+  background-color: black;
+}
+blockquote{
+  background-color: steelblue !important; 
+  color: aquamarine;
+  font-size: 2em;
+}
+/* hereda el tamaño padre, pero no hereda para despuer procesarse, por lo que tiene el mismo tamaño */
+cite{
+  font-size: inherit;
+  border: solid;
+  border-color: inherit;
+  padding: inherit;
+  margin: inherit;
+  /* font-size: 2em; */ /* tiene esta valor heredado, pero si lo ponemos manual se procesa como el doble del que vino( que es lo normal) */
+}

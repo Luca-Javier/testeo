@@ -1,0 +1,94 @@
+h1{
+  background-color: black;
+  color: greenyellow;
+}
+.static{
+  background-color: yellow;
+  position: static;
+  left: 10px;
+  right: 1000px; /* no se mueve porque es estatico */
+} /* top es superior a bottom y left es superior a right */
+.relative{
+  background-color: teal;
+  position: relative;
+  left: 100px; /* no se mueve a la izquierda, se mueva de la izquierda a la derecha(se aleja desde esa posición) */
+  top: 100px;
+  height: 50px;
+  right: 3000px; /* left tiene prioridad a right */
+  bottom: 1000px; /* top tiene prioridad */
+  /* si al top le pongo numero negativos, es como poner un bottom pero empezando desde el top, lo mismo con left y right */
+  /* si nos fijamos la caja con la consola, sale una nueva medida, position */
+}
+/* relative = se puede mover pero los siguiente elementos repetan su lugar original */
+/* 4:45 */
+/* el height de la caja relativa sigue ocupando el espacio original */
+.absolute{
+  background-color: tomato;
+  position: absolute;
+  left: 0;
+  top: 0; /* no se aleja 0 pixeles de un elemento,se eleja 0 pixeles tomando de referencia todo el documento HTML */
+          /* comprobar top:0; en otra caja para entender mas */
+  
+}
+.relative-dad{
+  background-color: crimson;
+  height: 70px;
+  width: 700px;
+  position: relative;
+  left: 100px;
+  top: 40px;
+
+}
+.absolute-child{
+  background-color: blueviolet;
+  position: absolute;
+  top: 0px;
+  right: 0px; /* si esta en un elemento relativo ya no agarra todo el cuerpo HTML, agarra el cuerpo relativo donde se encuentra */
+} /* ahora si muevo el relativo, muevo el absolute con el adentro */
+.fija-example-absolute{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: palegreen;
+}/*  */
+.fixed{ /* esto sirve un monton para un nav horizontal */
+  background-color: hotpink;
+  position: fixed;
+  width: 100px; /*  lo ignora */ /* tipo display inline */
+  height: 2em; /* no ignora */
+  bottom: 0;
+  right: 80px;
+}
+/* #dato: entre 2 cajas que se superponen, sobre sale la que no es static */
+.stickyBox{ /* puede ser contenido en una caja o en el documento HTML */
+  top: 50px; /* se adhiere cuando choca con esta medida */ 
+  position: sticky;
+  background-color: deepskyblue;
+}
+.stickyContenida{
+  height: 100px;
+  background-color: lightcyan;
+}
+.stickyContenida >*{
+  border: medium solid black;
+  background-color: aliceblue;
+  position: sticky;
+  top: 0; /* Cuando en el interfaz no vemos el contenedor padre, se queda arriba con su sticky adentro */
+}
+.test1-index-z,
+.test2-index-z{ /* que objeto tiene prioridad cuando se superponen */
+  /* el valor predeterminado es auto, pero tiene prioridad el que esta primero en el HTML (tipo pintar una pared) */
+background-color: firebrick;
+border: thin solid black;
+height: 100px;
+width: 150px;
+position: relative;
+
+}
+.test1-index-z{
+
+}
+.test2-index-z{
+  top: -50;
+  z-index: 3;
+}

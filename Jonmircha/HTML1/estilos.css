@@ -1,0 +1,26 @@
+*{
+  font-family: sans-serif !important;
+}
+img{
+  max-width: 100%;
+}
+table,tr{
+  border-color: black;
+  border: solid 1px;
+  
+}
+p{
+  font-size: 230px;
+}
+html{
+  scroll-behavior: smooth;
+  
+}
+.video{
+  width: 100%;
+  height: 70vw;
+}
+.numero{
+  width: 500px;
+  height: 500px;
+}

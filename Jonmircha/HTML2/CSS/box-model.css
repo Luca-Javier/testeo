@@ -1,0 +1,149 @@
+h1{
+  color: steelblue;
+  /* background-color: black; */
+  border: 10px;
+  border-width: unset;
+  border-style: dashed ;
+  border-color: greenyellow;
+  padding-right: 10px;
+}
+.caja1,
+.caja2{
+  background-color: chocolate;
+  border: medium solid orange;
+  padding: 10px ;
+  margin: 10px;
+}
+div.caja-bloque{
+background-color: slateblue !important;
+}
+span.caja-linea,
+div.caja-bloque{
+  background-color: steelblue;
+  height: 100px;
+  border: medium solid black;
+  width: 400px; 
+  margin: 40px;
+  
+
+  
+}
+span.invisible{
+  display: block;
+  border: thin solid black;
+  visibility: hidden; /* no se ve como display:none pero ocupa el esapcio de todas formas */
+}
+.miPList{
+  display: list-item; /* no hace nada */
+}
+.overflow{
+  background-color: chocolate;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  overflow: auto;
+}
+.tamaño-caja-content{
+  background-color: cyan;
+  box-sizing: content-box;
+  width: 500px;
+  height: 250px;
+  padding: 10px;
+  border: thick solid;
+/* tamaño total segun la consola: 530x280 porque 500px + 10px.2 + thick(5px).2 */
+}
+.tamaño-caja-border{
+  background-color: cyan;
+    box-sizing: border-box; /* li mismo menos esto */  
+    width: 500px;
+    height: 250px;
+    padding: 10px;
+    border: thick solid;
+}/* box-sizing establece el valor  */
+.box-test{
+  background-color: cyan;
+  height: 100px;
+  width: 600px;
+  
+}
+.box-test >*.test1{
+  width: 200px;
+  float: left;
+  border: 1px solid black;
+}
+/* si te fijas, tengo 3 elementos que miden 200 en un espacio que mide 600, el calculo esta bien pero la seccion 3 no entra */
+/* esto es porque el border se suma al tamaño total de la caja */
+.box-test>*.test2 {
+  width: 200px;
+  float: left;
+  border: 1px solid black;
+  box-sizing: border-box;
+  
+}
+/* con border box se calcula el temaño total dividiendo el content para que la suma sea congruente al border, no a parte */
+/* 5:26 */
+@import url(box-sizing.css);
+.miTabla > *{
+  display: inline-block;
+  width: 200px;
+  background-color: cyan;
+  border: thin solid black;
+
+}
+.miFloat >*{
+  float: left;
+  width: 200px;
+  background-color: seagreen;
+  border: thin solid black;
+}
+.float-test{
+  
+  background-color: steelblue;
+}
+.float-left{
+  float: left;
+  width: 50px;
+ /*  background-color: green; */
+}
+.float-right{
+  /* background-color: yellowgreen; */
+  float: right;
+  width: 50px;
+ 
+}
+.clearfix{ /* como que el clear hace que el div despues de los floats, sea una separacion entre los floats pero del lado que definamos */
+ /* probar clear: right para entender mas */
+  clear: left;
+
+}
+.margin-collapse{
+  background-color: salmon;
+}
+.margin-collapse >*{
+  border: thin solid black; /* border tiene thin-medium-thick */
+  margin-top: 16px;
+  margin-bottom: 16px; /* el margen no del medio no termina siendo 32px */
+  /* porque cuando se confrontan 2 margenes, se superponen */
+}/* tratar de nunca usar margin top y bottom a la vez(pro tip) */
+.margin-horizontal-collapse{
+  background-color: springgreen;
+  
+}
+.margin-horizontal-collapse >*{
+  
+  display: inline;
+  border: thin solid black;
+  margin-right: 16px;
+  margin-left: 16px;/* horizontalmente el margen si se suma y da como resultado 32px de margen */
+}
+.centrado-test{
+  background-color: darkcyan;
+  border: thin solid black;
+  width: 800px;
+  height: 800px;
+  padding: 16px;
+  text-align: center; /* centra el contenido de la caja, no la caja */
+  /* margin-left: auto; *//* todo el margen que sobre para la izq */
+  /* margin-right: auto; */ /* lo mismo, pero juntos son equitativos */
+  margin: 0 auto; /* primero el valor vertical y luego el horizontal, te ahorras 2 lineas por 1 pero cuidado con resetear a 0 los margenes verticales(esto no es buena practica) */
+}
