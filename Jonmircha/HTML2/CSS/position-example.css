@@ -52,8 +52,8 @@ body{
   margin: 0 auto;
   margin-top: 0; /* ejecto de empuje */
 }
-.modal-window{
-  background-color: maroon;
+.modal-window{ /* la modal window seria tipo facebook que hacer en una publicacion y se abre una ventanita mini dejando lo demas atras */
+  background-color: lightcoral;
   position: fixed;
   width: 100vw;
   height: 100vh; /* si comento lo de abajo(las posiciones de la caja), todo desaparece, no se por que */
@@ -61,13 +61,21 @@ body{
   opacity: 0.5; /* si pongo will-change:transform: ; en el body se arregla, parece que es un solucionador de errores pero sacrifica ram */
   /* averiguar porque necesito el will-change: transform; */
   top:0; 
-  bottom: 0;
-  right: 0;
-  left: 0;
-  /* display: none; */
+  /* LO ENTENDÍÍII */
+  /* Como la hero-image ocupa 100vw y vh mi elemento fixed al no tener posicion(segundo el html, no los elementos) se posiciona abajo del her-image
+  y como este ocupa todo, el fixed se encuntra debajo de lo que veo(fuera/debajo de lo que veo en mi pantalla) y como es un elemento fijo ya se queda ahi para siempre
+  y no lo veo nunca, para entender mas cambiar el hero-image a 90vw y vh */
+  display: none;
 
  
 }
+
 .modal-window:target{
   display: block;
+  background-color: lightblue;
+}
+.box{
+  background-color: sienna;
+  padding: -20px; /* no existe el padding negativo */
+  margin-left:-30px ;
 }

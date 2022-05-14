@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectores</title>
+  <link rel="stylesheet" href="CSS/selectores.css">
+</head>
+<!-- solo antes del selector universal porque eso ya esta en el index -->
+
+<body>
+  <h3>Selector de hijos directos</h3>
+  <ul class="hijos-directos">
+    <li><b>hola</b></li>
+    <li><b>Como</b></li>
+    <li><b>Estas</b></li>
+    <li><b>Tu</b></li>
+  </ul>
+  <h3>Hijos descendientes</h3>
+  <ul class="hijos-descendientes">
+    <li><b>hola</b></li>
+    <li><b>Como</b></li>
+    <li><b>Estas</b></li>
+    <li><b>Tu</b></li>
+  </ul>
+  <h2>Selector de hermanos</h2>
+  <h3>Selector de hermanos (en general)</h3>
+  <ul>
+    <li><b>hola</b></li>
+    <li class="hermanos-general"><b>Como</b></li>
+    <li><b>Estas</b></li>
+    <li><b>Tu</b></li>
+  </ul>
+  <h3>Selector de hermanos adyacente</h3>
+  <ul>
+    <li><b>hola</b></li>
+    <li class="hermanos-adyacentes"><b>Como</b></li>
+    <li><b>Estas</b></li>
+    <li><b>Tu</b></li>
+  </ul>
+  <h2>Selectores de atributos</h2>
+  <section class="selector-atributos">
+    <ul>
+      <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://www.google.com" target="_blank">Google</a></li>
+      <li><a href="https://docs.google.com" target="_blank">Docs</a></li>
+      <li><a class="como-estas-vos" href="">No tocar</a></li>
+      <li><a href="https://www.youtube.com" target="_blank">Youtube</a></li>
+      <li><a class="menu-item cursos boton" href="" target="_blank">Ningun lado</a></li>
+    </ul>
+  </section>
+</body>
+
+</html>
