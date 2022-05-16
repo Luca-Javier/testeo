@@ -1,0 +1,68 @@
+body{
+  font-family: sans-serif;
+  margin: 0;
+}
+.border-radius{
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border: thick solid brown;
+  border-radius: 1rem; /* redondea las esquinas */ /* en verdad es un shorthand */
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 4rem;
+  border-radius: 2rem 7rem; /* esquina superior izquierda y la opuesta, esquina superior derecha y la opuesta */
+  border-radius: 2rem 7rem 0; /* 3°valor: esquina baja derecha */
+  border-radius: 2rem 7rem 0 10rem; /* 4°valor: esquina izquierda baja */
+  /* van como el reloj empezando en la esquina superior izquierda */
+} /* border radius es como el valor que le restamos al radio, sabiendo que los mas lejos que hay del centro en un cuadrado son las esquinas */
+.intentoCirculo{
+  background-color: black;
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  border-radius: 13rem;
+  border-radius: 50%; /* esto lo pone comom circulo de una, pero tiene que tener medidas iguales, tubo que haber sido un cuadrado perfecto */
+  border: thick solid blue;
+}
+.eliptico{
+  background-color: black;
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  border-radius: 10rem / 5rem; /* juga en la consola */
+  border-radius: 5rem / 10rem; /* 1°valor: en el centro en eje y, 2° en eje x */
+  border: thick solid blueviolet;
+  /* border-radius: 5rem 4rem 3rem 10rem / 3rem 4rem 5rem 5rem; */ /* se puede hacer las 4 esquinas en cada eje pero esto no lo voy a usar en mi vida */
+}
+.misRadios >*{
+  color:white;
+  text-align: center;
+  box-sizing: border-box;
+  padding: calc(300px / 2) 0;
+}
+.circulo-impar{
+width: 400px; /* tiene que ser mucha la diferencia si el width es el mas grande, pero al revez no*/
+height: 10px;
+border-radius: 50%;
+border: thick solid yellow;
+background-color: black;
+margin: 0 auto;
+}
+.outline{
+  outline: 100px solid navy;/* borde externo, a este borde le chupa un huevo el margin y todo, el se pone donde lo llaman*/
+  background-color: black;
+  margin: 30px auto;
+  color: white;
+  width: 300px;
+  height: 300px;
+  border: 20px solid steelblue;
+  outline: thick solid navy;
+  /* outline-offset: 2rem; */
+  outline-offset: -4rem; /* espacio entre bordes, tipo padding */
+}
+.input-outline{ /* cuando seleciono un input y remarca el negro, es un outline. Es un outline:focus */
+  margin: 0 auto;
+  margin-top: 50px;
+  display: block;
+}

@@ -32,7 +32,7 @@
 .chalet{
   font-family: "Chalet";
 }
-@font-face {
+@font-face { /* creo que esta es una manera como la de poner el link en el html */
   font-family: "PecitaPuta";
   src: url(../assets/Pecita.woff) format("woff");
 }
@@ -126,3 +126,5 @@ writing-mode
   word-break: break-all; /* las palabras se rompen y pasan para abajo las letras que no entren. No deja un guíon o algo que indique, una cagada */
   word-spacing: 4px; /* como el letter pero entre palabras */
 }
+
+
