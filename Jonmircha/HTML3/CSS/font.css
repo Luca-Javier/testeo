@@ -1,0 +1,128 @@
+/* font es un shorthand, siempre usamos font-size pero vamos a ver todo ahora */
+/* 
+  Estilos de la fuente
+  
+  font-family
+  font-size
+  font-weight
+  font-style
+  font-variant
+  line-height
+  font
+  */
+
+.family{
+  font-family: sans-serif; /* las fuentes estan las pc´s, en los sistemas operativos, por eso por ahí la tengo o por ahí no, por eso pongo varias */
+  font-size: 32px;
+  font-weight: 700; /* peso tipografico *//* no todas las tipografias tienen el mismo grosor o pueden variar */
+  font-style:  normal; /* creo que según la tipografía podemos tener mas estilos */
+  font-variant: small-caps; /* todo mayuscula */ 
+  line-height: 10spx; /* tamaño de linea */
+  font: italic  small-caps bold 24px / 1.5 monospace; /* hay que poner la / entre font size y line height */
+}/*font-style  font-variant  font-weight  font-size  line-height  font-family. */
+/* style y variant ni se usan pero son necesarios para el shorthadn, por eso es mejor no usarlo y usar cada variante por separado, aparte son muchas y es un lío */
+ 
+/* por ahí tengo la fuente en mi compu, pero si el usuario no la tiene no la va a ver, por eso la vamos a importar */
+/* Podemos descargar font familys, que son archivos con extension woff o woff2 (Web Open Font Format) */
+@font-face { 
+  font-family: "Chalet"; /* "Pecita"; */
+  src: url(../assets/Chalet.woff) format("woff");
+ /*  url(../assets/Pecita.woff) format("woff"); */ /* no se si se pueden cargar 2 con el mismo metodo */
+}
+.chalet{
+  font-family: "Chalet";
+}
+@font-face {
+  font-family: "PecitaPuta";
+  src: url(../assets/Pecita.woff) format("woff");
+}
+.pecita{
+  font-family: "PecitaPuta";
+}
+.font-face >*{ /* decoración mía */
+  margin: 10px auto;
+}
+
+/* font-display(como queremos que cargue el texto mientras se carga la nueva tipografía):
+
+ auto - permite que el navegador utilice el método predeterminado que suele ser block 
+ block - oculta brevemente el texto hasta que la fuente haya sido descargada por completo 
+ swap - indica al navegador que utilice la fuente alternativa para mostrar el texto 
+ hasta que la fuente personalizada se haya cargado por completo (la mas usada)
+ fallback - es una mezcla de auto y swap (medio al pedo me parece)
+ optional - ocultará el texto, luego lo cargará con la fuente alternativa y 
+ finalmente aplicará la fuente personalizada (como el fallback pero tardaría un poco mas)*/
+.font-face >*{
+  font-display: swap;
+}
+/* https://fonts.google.com A MANO ALSADA EHHHH ajajajAJAJ*/
+/* https: //fonts.google.com/specimen/Permanent+Marker?query=permanent#type-tester  esta solo tiene un estilo
+no tiene ñ y unicamente es con mayusculas*/
+/* https: //fonts.google.com/specimen/Raleway?query=raleway#standard-styles  esta tiene muchos
+estilos, si descargamos muchos puede generar un mal rendimiento */
+/* recomendación: usar 2 tipografias como mucho en todo la pagina, como mucho 2 si queremos diferenciar el titulo y las letras
+adeams podemos confundir al usuario */
+.raleway{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+/* 
+text-align
+text-decoration
+text-indent
+text-overflow
+  overflow: hidden;
+  white-space: nowrap;
+text-transform
+
+letter-spacing
+
+white-space
+
+word-break
+word-spacing
+writing-mode
+*/
+.text{
+  background-color: darkslategrey;
+  font-size: 2rem;
+  width: 50%;
+  border: medium solid black;
+  text-overflow: ellipsis; /* neceita el overflow y el white-space */ /* ellipsis agrega los 3 puntos */
+    overflow: hidden; 
+    white-space: nowrap; /* el texto no se ajusta/no deja espacios */
+}
+.text2{
+  background-color: steelblue;
+  font-size: 2rem;
+  text-align: center;
+  text-align: left;
+  text-indent: 2rem;
+  padding: 1rem;
+  width: 50%;
+  text-transform: capitalize; /* todas las palabras empiezan con mayusculas */
+  text-transform: lowercase; /* todo minusculas */
+  text-transform: uppercase; /* todo mayuscula */
+  text-transform: none; /* predeterminado */
+  letter-spacing: 4px; /* separacion enter letras */
+  /* white-space: pre; */ /* es la propiedad que tiene la etiqueta <code> que servía para mostrar tal cual lo tenemos en el codigo */
+  /* white-space: pre-wrap; */ /* como pre, pero usa los espacios en blanco para que se ajuste a a la caja */
+  writing-mode: horizontal-tb; /* predeterminado */
+  /* writing-mode: vertical-rl; */ /* verticalmente */
+}
+.text2 b.underline{
+  text-decoration: underline;
+}
+.text2 b.overline {
+  text-decoration: overline;
+}
+
+.text2 > a{
+  text-decoration: none;
+}
+.word-spacing{
+  font-size: 2rem;
+  word-break: keep-all; /* predeterminado */
+  word-break: break-all; /* las palabras se rompen y pasan para abajo las letras que no entren. No deja un guíon o algo que indique, una cagada */
+  word-spacing: 4px; /* como el letter pero entre palabras */
+}

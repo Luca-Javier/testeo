@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.color-by-name{
+  background-color: steelblue;
+  color: midnightblue;
+  border: thick solid turquoise;
+  padding: 10px;
+}
+/* Sistemas de medidas
+
+Sistema HEX(hexadecimal)
+0123456789ABCDEF (usan todos estos valores pero solo usan 6 digitos y empiezan con #)
+los 6 digitos se dividen en 3 parejas de cada color
+
+
+RGB (Medios digitales) vs CMYK (Medios impresos
+RGB: RedGreenBlue
+CMYK: CyanMagentaYellowKey
+*/
+.color-hex{
+  background-color: #ff6600;
+  /* background-color: #f;  1 no anda*/
+  /* background-color: #ff;   2 no anda*/
+  /* background-color: #ffff0;  5 no anda*/
+  color: #00ff0055; /* puedo poner 8 digitos siendo los 2 ultimos el porcentaje de la opacidad */
+  border: thick solid blueviolet;
+  border: #ffffff;
+  border: #ff0000;
+  border: #f00; /* si solo tengo 3 valores, son R,G,B */
+  border: #f005; /* si tengo 4 valores son R,G,B,opacidad */ 
+  border: #00ff00;
+  border: #0f0;
+  border: #0000ff; /* 6 valores para profundizar mucho un cada 1 */
+  border: #00f;
+  border: #000000;
+
+  border: thick solid #00ff;
+
+  background-color: #000000;
+}
+/* si ponemos en google "rgb to hex" nos sale tipo traductor ahi para usarlo */
+/* Sistema RGB 
+acepta valores de 8 bits osea tiene 256 valores contando el 0*/
+.color-rgb{
+  background-color: rgb(red, green, blue);
+  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  background-color: rgb(0, 255, 0);
+  background-color: rgb(0, 0, 255);
+  background-color: rgb(0, 0, 0);
+  color: rgb(18,106,179);
+  background-color: rgba(0, 0, 0,0.80); /* rgba para la opacidad: 1 - 0.0 */
+}
+/* HueSaturationLightness(Tono-Saturación-Luminosidad) 
+
+Hue (Circulo Cromático) (cirulo 0°-360°)
+0° ->red
+60° ->yellow
+120° ->green
+180° ->cyan
+240° ->blue
+300° ->magenta
+
+Saturation (intensidad del color)
+0% -> Escala de grises (de blanco a negro, si subis y bajas un color en ese rango se vuele mas o menos intenso)
+100% -> Color puro
+
+Lightness
+0% -> negro
+100% -> blanco
+*/
+.color-hsl{
+  background-color: hsl(hue, saturation, lightness);
+  background-color: hsl(0, 100%, 50%);
+  background-color: hsl(10, 0%, 50%); /* si la saturacion es 0 el color es gris aunque cambies el color (hue) */
+  background-color: hsl(0, 100%, 100%);
+  background-color: hsl(0, 50%, 0%); /* luminosidad al maximo/minimo tiene su propio color independiente de los otros valores */
+  background-color:hsl(0, 50%, 50%) ;
+  background-color: hsl(187, 68%, 23%); /* si pongo el ° en hue no anda y los porcentajes lo mismo*/
+  border: 10px solid hsla(1, 1%, 0%, 0.5);
+  color: hsla(1, 1%, 0%, 50%); /* para la opacidad sirve 0.5 y 50% */
+}
+/* si en la consola me fijo la pestaña computed/calculado puedo ver como lo convierte el navegador
+y el sistema usado es rgb aunque no es que tenga importancia, pero el hue este es una cagada.
+Es probable que en un grupo haya que ponerse de acuerdo */
+.color-transparent{
+  /* color: seagreen; */ /* el current agarra este valor */
+  background-color: steelblue;
+  background-color: transparent; /* transparente = 0 opacidad */
+  background-color: currentColor;/* color(atributo color) heredado */
+  color: white; /* si lo hereda aunque sea un atributo en linea gana este, parece que tiene mas valor que un heredado
+  pero si pongo en linea al elemento si que gana como es logico */
+  background-color: white;
+  border: thick solid currentColor;
+}
+/* el color predeterminado del html es  */
+.opacidad{ /* o aplico a todo el elemento o solo un coso EJ: color con rgba */
+  background-color: steelblue;
+  color: white;
+  border: thick solid black;
+  opacity: .5; /* no hace falta el 0 */
+  opacity: 1;
+  opacity: 0; /* un hidden */
+}

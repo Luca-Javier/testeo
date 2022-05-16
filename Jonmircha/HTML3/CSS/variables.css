@@ -1,0 +1,61 @@
+.props1{ /*  las variables empiezan con 2 - o sea "--" */
+  --bg-props-1: red;
+  --let-font-size:32px;
+}
+.props1{
+  background-color:var(--bg-props-1) ;
+}
+.props3{
+  font-size: var(--let-font-size);
+}
+.title{
+  --bg-props-1: steelblue; /*  si borro esto se queda el segundo valor que le pase, orange. */
+  background-color: var(--bg-props-1, orange,);
+}/* no afecta porque las variables solo afectan dentro de los elementos hijos(y del padre que lo creo) */
+/* para heradar las variables a todos puedo crearlas en el html o */
+:root{
+  
+  color: darkgreen;
+  --default-bg-color:darkcyan;
+  /* background-color: var(--default-bg-color); */
+} /* root tiene mas especificidad y eso le gana a la cascada */
+html{
+  --varibale-html:2px;
+  color:rebeccapurple;
+}
+.props1{ /* heredado del root */
+  background-color: var(--default-bg-color);
+}
+.props3{
+  border: thick solid var(--border-color); /* no aparece en los tabs, pero existe en html asi que anda */
+}/* despues de usarla una vez ya aparecera en el tab */
+.ch-10{
+  background-color: var(--default-bg-color);
+  font-size: 2rem;
+  padding: 2ch;
+  width: 14ch; /* hay que sumarle los padding */
+  border: thin solid black;
+
+}
+*{
+  box-sizing: border-box; /* error: necesita ser un elemento en bloque, si es en linea no hace caso porque usa lo que necesita */
+  /* si cambias el div por span podes ver que un elemento en linea si tiene mas espacio de contenido(el que ponemos) pero no lo muestra, con el border box
+  en la consola podemos como el contenido disminuye pero como igual no lo mostraba no hay ningun cambio  */
+}
+.ch-10 { /* ahora con calc que justo en el video resuelve este problema xd */
+  --padding-size:2ch;
+  --box-size:10ch;
+  padding: var(--padding-size);
+  width: calc(var(--box-size) + var(--padding-size) * 2); /* IMPORTANTE: hay que poner los simbolos separados, si juntas el + no anda */
+}
+.min-max{
+  background-color: var(--default-bg-color);
+  width: min(200px, 50vw); /* agarra el valor mas chiquito */ /* elige 200px pero cuando la pantalla se hace muy chiquita y cuando 50vw es menor que 200px se adopta este nuevo valor relativo */
+  height: max(200px,50vh); /* agarra le valor mas grande */ /* elige 50vh pero cuando la pantalla si hace chiquito y 50vh es mas que 200px, se adopta 200px */
+   /* puede haber confusion porque 50 vw va bajando su valor,pero cuando llega a 200px adopta ese valor */
+    /* height: 50vw; */
+}
+.clamp{ /* h1 tiene 32px font size default */
+  background-color: var(--default-bg-color);
+  font-size: clamp(2rem,1rem + 3vw,3rem); /* (valor minimo, ideal(permite funciones),maximo */
+}

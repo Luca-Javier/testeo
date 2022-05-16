@@ -1,0 +1,154 @@
+/* Unidades de medida
+
+1)Absolutas: su valor no cambia, son unidades del mundo real
+  pc,cm,mm,in(pulgada),Q(cuarto de pulgada)
+  pt(1/72in) 
+  px(1/96in)
+  (para imprimir, crear pdf´s tendria que usarlas sino me olvida nomas)
+
+2)Relativas: varían según su contexto
+  em, rem, ex, ch - son tamaños segun la fuente
+    em: basada en la altura de la m del contenedor
+    rem: basada en la anchura de la m de la fuente del elemento raiz html
+    ex: basada en la altura de la x del contenedor
+    ch: basada en la altura del 0 del contenedor
+    
+  %, vw, vh, vmin, vmax - al tamaño del viewport
+    %: basado en el tamaño del contenedor
+    vw: ancho del viewport (width) (0-100)
+    vh: alto del viewport (height) (0-100)
+    vmax: entre vw y vh toma el que tenga mayor valor
+    vmin: entre el vw y vh toma el que tenga el menor valor
+    
+    conversión entre unidades - http://pxtoem.com/ Sirve mucho para comparar y ver si nuestro calculos eran correctos */
+
+/* html{
+  box-sizing: border-box;
+} no se para que es, creo que es una buena practica
+*,
+*::after,
+*::before{
+  box-sizing: inherit;
+} */
+.pixeles{
+  background-color: steelblue;
+  width: 300px;
+  height: 200px;
+  border: medium solid black;
+  font-size: 16px; /* es mas recomendado usar medidas relativas para la letra por el tamaño de la pantalla que pueda tener nuestro dispositivo */
+
+}
+.ems{
+  background-color: violet;
+  font-size: 2em; /* 32px */
+  padding: 1em .5em; /* varía según el font size */
+  border: thin solid black;
+}
+.ems-child{
+  border: thin solid black;
+  background-color: tomato;
+  margin: .25em; /* aunque sea margin, sigue agarrando el tamaño de la font size, de echo arriba en la nota em dice que se basa no en la font size sino en el tamaño de la "m" */
+  font-size: 2em; /* el doble del contenedor padre (64px) */
+}
+/* html{
+  font-size: 20px;
+} */ /* la forma de cambiar el valor base de rem */
+.rems {
+  background-color: violet;
+  font-size: 2rem;
+  padding: 1rem .5rem; 
+  border: thin solid black;
+}
+.rems-child {
+  border: thin solid black;
+  background-color: tomato;
+  margin: .25rem;
+  font-size: 2rem; /*  me gustó mas rem que em */
+}
+.Ex{
+  background-color: violet;
+  font-size: 3ex;
+  padding: 1ex .5ex;
+  border: thin solid black;
+}
+.Ex-child{
+  border: thin solid black;
+  background-color: tomato;
+  margin: .25ex;
+  font-size: 3ex; /* la ANCHURA de la x (ni se usa esto) */
+}
+/* *{
+  font-size:32px ;
+} */
+.ch {
+
+  background-color: violet;
+  /* font-size: 30px; */
+  /* width: 10ch; */ /* 10 digitos */ /* se ajusta al tamaño del html y a los del contenedor */
+} /* se usaría para mantener justo el tamaño en un input que tenga limite, pero hay caracteres mas chiquitos y mas grandes */
+.porcentaje-letter-pattern >* {
+  font-size: 32px; /* esto no afecto, tiene que ser del html */
+}
+/* *{
+  font-size:20px ; 
+} */
+/* aplica al porcentaje */
+
+/* html{
+background-color: black;
+}
+body{
+  background-color: white; 
+} */
+/*en general el height se amolda a lo que se necesite*/
+
+.porcentaje{
+  background-color: gold;
+  margin: 5% 5% 5% 0; 
+  padding: 5%;
+  width: 50%;
+  border: thin solid black;
+  font-size: 100%; /* la mitad del tamaño de letra del html */
+  height: 50%; /* no hace nada */ /* en la nota dice que agarra el tamaño del contenedor o sea que necesita estar en un contenedo Y QUE TENGA una medida establecida sino agarrar la del html */
+  box-sizing: border-box;
+}
+.porcentaje-letter-pattern{
+  background-color: black;
+  height: 300px; /* esta medida agarra el height: 50%; */
+}
+/* *{
+  margin: 0;
+} */ /* eliminar scroll horizontal */
+.viewport{
+/* si el body tiene margenes y uso width 100vw voy a generar un scroll */
+  background-color: darkcyan;
+  /* width: 100%; */ /* el % ocupa el 100 de lo que le cede el body y el vw ocupa el 100 de la pantalla, si hay margenes tmb se genera un scroll */
+  width: 100vw; /* por razones como esta es buena practica box-sizing border box y margin 0 en el html de una */
+  height: 50vh;
+  font-size: 5vw; /* truco para que se ajuste a la pantalla tmb sin que las palabras se pasen para abajo */
+  /* font-size: 5vh; */ /* si la pantalla es muy larga(width) las letras van a crecer mas que el height */
+  padding: 2vh 2vw;
+}
+.vwmax{
+  background-color: salmon;
+  width: 50vmax;
+  height: 50vmax;
+  border: medium solid black;
+}
+.vwmin {
+  background-color: salmon;
+  width: 50vmin;
+  height: 50vmin; /* si achico la pantalla horizontalmente veo que esta caja toma el 50% de la caja mas chiquita(minima) y la otra se mantiene grande
+  dispuesta a ocupar el 50% de la caja mas grande(maxima) */
+  border: medium solid black;
+}
+/* CONCLUSION 
+1) si la pagina tiene impresion conviene cm,mm,in,px
+
+2)para manipular letras es mejor rem(el que mas me había gustado) 
+y para paddings,margin es mejor em (en casos donnte ponele tenemos una tarjeta con titulo, subtitulo y descripcion, con los ems podemos darle paddings, etc que se ajusten a su tamaño de letra por ser titulo o subtitulo
+ch tmb sirve para poner un espacio con caracteres justos, puede servir en un input o en una tarjeta 
+el % es lo mejor
+el vw y vh sirven, pero personalmente me parece que el % es superior (menos en el caso de darle a la altura un vw o al revez para el efecto curioson ese)
+
+extra: manejarse con un font-size base(en el html) de 16px*/

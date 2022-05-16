@@ -32,8 +32,14 @@
 .miNav a{
   text-decoration: none;
   color: black;
+  display: inline-block;
+  width: 30%;
 }
 header.first-conteiner h1{
   text-align: center;
+}
+.miNav >*{
+  box-sizing: border-box;
+  margin: 0 calc((99% - 30% * 3)/6); /* VAMOOOOOOOOOO */
 }
 
