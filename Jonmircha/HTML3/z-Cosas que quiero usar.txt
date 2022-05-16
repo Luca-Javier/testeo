@@ -1,0 +1,11 @@
+sticky
+border-box
+calc
+clamp
+var
+border-radius
+selectores de atributos
+iconos
+colores hexadecimales
+z-index
+fixed y display hidden
