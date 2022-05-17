@@ -1,0 +1,68 @@
+/*
+background-color: define el color de fondo del elemento
+background-image: define la imagen de fondo del elemento
+background-size: define el tamaño de la imagen de fondo, primer valor x, segundo y
+    - cover: cambia el tamaño de la imagen de fondo para asegurarse de que permanezca completamente visible
+    - contain: cambia el tamaño de la imagen de fondo para asegurarse de que el elemento esté completamente cubierto
+background-repeat: define cómo se repite la imagen de fondo en el elemento
+background-position:
+  define la posición de la imagen de fondo, primer valor x, segundo y, si no se especifica un segundo valor éste será center
+  aparte de valores numéricos podemos indicar el posicionamiento con las palabras: center, top, bottom, left and right
+background-clip: define cuánto debe extenderse el fondo dentro del elemento.
+background-origin: define el origen de la imagen de fondo.
+background-attachment: define cómo se comportará la imagen de fondo al desplazarse por la página
+*/
+.box {
+	/* background es un shortahand pero son muchas cosas asi que no se reocomienda */
+	background-color: black;
+	border: thick dashed red;
+	width: 300px;
+	height: 300px;
+	margin: 1rem auto;
+}
+.bg-color {
+	background-color: white;
+}
+.bg-image {
+	background-image: url(../assets/puesta-sol.jpg);
+}
+.rompePija {
+	text-align: center;
+}
+.bg-size1 {
+	background-size: 300px 300px; /* width y height */
+	display: inline-block;
+	margin-right: 40px;
+}
+.bg-size2 {
+	background-size: 300px; /* width */
+	display: inline-block;
+	background-size: cover; /* cubre toda la caja sin repetir, pero no asegura mostrar toda la imagen */
+	background-size: contain; /* muestra toda la imagen y se ve decente pero la imagen puede repetirse */
+}
+.repeat {
+	background-repeat: repeat; /* predeterminado */
+	background-size: 100px;
+	background-repeat: repeat-x; /* se repite en el eje x */
+	background-repeat: repeat-y; /* se repite en el eje y */
+	background-repeat: no-repeat; /* independientemente del tamaño ya no se repite */
+}
+.position {
+	background-color: skyblue;
+	background-position: 100px 20px; /* es un shorthand */ /* posicion donde empiza la imagen */
+	/*margin: x y; no se porque es al revez  */
+	background-position: 150px; /* el eje y tiene predeterminado center */
+	background-position: top; /* siempre es center el eje y si no especificamos */
+	background-position: bottom right;
+}
+.bg-clip {
+	background-color: skyblue;
+	background-repeat: no-repeat;
+	background-size: 150px;
+	padding: 1rem;
+	/* box-sizing: border-box; */ /* AL USAR border box el padding la caja se hace mas chica. No entiendo */
+	background-position: top left;
+	background-clip: border-box; /* predeterminado */
+	background-clip: padding-box;
+}
+/* 1:00 - 1:11 */ /* 5:05 */
