@@ -1,6 +1,17 @@
-table[border] {
+table[border="1"] {
 	/* como lo borrooo */
+	border: 0; /* borre el punto, pero con hidden no me deja */
+	/* display: none; */ /* ahhh */
 }
 .table {
 	border: thin solid black;
+	font-size: 3rem;
+} /* border al final es mejor que esto por aplica a todo  por lo que hay que:*/
+table,
+td,
+th {
+	border: thin solid black;
+}
+tr {
+	border: thick solid red; /* tr no tiene bordes */
 }
