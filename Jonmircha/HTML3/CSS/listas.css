@@ -1,0 +1,42 @@
+.first-list {
+	list-style-type: disc; /* default */
+	list-style-type: decimal-leading-zero;
+	list-style-type: square;
+	list-style-type: lower-greek;
+	list-style-type: none;
+	list-style-type: armenian;
+	list-style-image: url(../assets/aves.png); /* una verga */
+	list-style-image: none; /* se hace mejor dentro de los li */
+}
+.first-list li::before {
+	content: "";
+	display: inline-block; /* así se queda al lado de los li´s */
+	width: 1rem;
+	height: 1rem;
+	background-image: url(../assets/favicon.png);
+	background-size: contain;
+}
+.first-list {
+	list-style-type: none;
+}
+.second-list li {
+	background-color: coral;
+	list-style-position: outside; /* predeterminado */
+	list-style-position: inside; /* las viñetas forman parte de la lista, se ve re mal */
+}
+.tercer-list li {
+	background-color: cornflowerblue;
+	list-style: decimal outside;
+}
+.text-column {
+	column-count: 5; /* cuantas columnas */ /* si pongo impar se le resta a las esquinas y queda piola */
+	column-gap: 50px; /* margen entre ellas */
+	column-rule: medium solid red; /* separacion, igual queda enter medio de los numero, que onda */ /* es por el column gap */
+	/* es tipo border pero a la izquierda nada mas(enter las columnas) */
+	column-width: 100px; /* width de columnas y si la pantalla se achica la cantidad de columnas se reduce, re piola */
+}
+.text-colum-lorem {
+	column-count: 3;
+	column-gap: auto;
+	column-rule: thick dotted navy;
+}

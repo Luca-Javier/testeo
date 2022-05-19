@@ -9,3 +9,6 @@ iconos
 colores hexadecimales
 z-index
 fixed y display hidden
+background-attachment: fixed; 
+listas con favicoins que sean bg.image´s
+pseudo clases

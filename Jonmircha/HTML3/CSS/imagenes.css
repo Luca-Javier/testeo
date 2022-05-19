@@ -1,0 +1,21 @@
+/* es buena practia aplicar este reset */
+img {
+	max-width: 100%; /* maximo, nada mas, me sirve para poner en general un limite */
+	height: auto;
+}
+.card {
+	border: medium solid black;
+	width: 400px;
+}
+.card img[alt="puesta de sol con kenai"] {
+	height: 300px; /* la imagen se deforma */
+	object-fit: fill; /* predeterminado */ /* se parece abg-size */
+	object-fit: cover;
+	object-fit: none; /* como que anula todas las adaptaciones que tuvo */
+	/* cuando ponemos cover y la imagen es mas grande automaticamente se muestra la mitad, se pone el valor de abajo */
+	object-position: 50% 50%;
+	object-position: -50px center; /* da igual el segundo si el width si es correcta */
+	/* poner -50px es como poner left: -50px;  empuja desde left */
+	object-fit: scale-down; /* no se usa mucho */
+	object-position: 50% 50%;
+} /* todo esto es para darle un tamaño especifico a una imagen */
