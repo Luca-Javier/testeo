@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.miForm {
+	/* form es en bloque y es el contenedor*/
+	--form-placeholder-color: rgb(35, 88, 194);
+	--form-text-color: #999;
+	--form-succes-color: #00ff00;
+	--form-error-color: #ff2020;
+	--form-bg-color: #d2d2d2;
+	--form-border-color: #222;
+	/*  */
+	background-color: var(--form-bg-color);
+	border: medium solid var(--form-border-color);
+	margin: 0 auto;
+	padding: 2rem;
+	width: 100%;
+}
+.miForm > * {
+	margin-bottom: 1.5rem;
+	border: medium solid var(--form-border-color);
+	padding: 0.4rem;
+	font-family: sans-serif;
+	display: block;
+	width: 100%;
+	color: var(--form-text-color);
+	/* box-sizing: border-box; */ /* creo que reduce los bordes de los propios inputs */
+	border-radius: 0.7rem;
+	/* caret-color le da color a la barrita "|" que aparece en el input cuando escibimos (cambiar a rojo para apreciar) */
+	caret-color: thin solid var(--form-error-color);
+}
+.miForm > *::placeholder {
+	color: var(--form-placeholder-color);
+}
+.miForm input[type="submit"] {
+	background-color: var(--form-placeholder-color);
+	color: whitesmoke;
+	width: 50%;
+	border-radius: 0rem;
+	margin: 0 auto; /* porque es el que está mas abajo y así solo queda el padding como en top */
+}
+.miForm input[type="submit"]:hover {
+	/* cuando paso por arriba de un boton el cursor no cambia a click y debería ya de ser un valor predeterminado */
+	cursor: default; /* default */
+	cursor: pointer;
+	background-color: rgb(50, 100, 240);
+}
+textarea {
+	resize: none; /* la esquinita para agrandar o achicarla */
+}
+.miForm > *:invalid {
+	text-decoration: underline var(--form-error-color);
+}
+.miForm > *[required]:valid {
+	/* especifico el required para no pintar el submit */
+	border: thin solid var(--form-succes-color);
+}
+/* .miForm input[type="submit"] { 
+	border: medium solid var(--form-border-color);
+} */ /* para que el valid no le de el estilo al submit */

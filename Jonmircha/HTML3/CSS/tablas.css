@@ -4,6 +4,8 @@ table[border="1"] {
 	/* display: none; */ /* ahhh */
 }
 .table {
+	margin: 0 70px;
+	display: inline-block;
 	border: thin solid black;
 	font-size: 3rem;
 } /* border al final es mejor que esto por aplica a todo  por lo que hay que:*/
@@ -13,5 +15,15 @@ th {
 	border: thin solid black;
 }
 tr {
-	border: thick solid red; /* tr no tiene bordes */
+	border: thick solid navajowhite; /* tr no tiene bordes */
+}
+.collapse {
+	border-collapse: separate; /* predeterminado */
+	border-collapse: collapse; /* collapsan los bordes y agarran el color del tr */
+}
+.separate {
+	border-collapse: separate;
+	border-spacing: 10px; /* necesita el predeterminado de border collapase */
+	empty-cells: show; /* default */
+	empty-cells: hide; /* oculta las celdas vacías */
 }
