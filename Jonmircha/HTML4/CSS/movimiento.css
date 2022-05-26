@@ -1,0 +1,105 @@
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+	margin: 0;
+}
+
+.box {
+	border: thick solid #000;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5rem;
+	width: 200px;
+	height: 200px;
+}
+
+.card {
+	border: thick solid #000;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5rem;
+	width: 600px;
+	height: 400px;
+}
+
+.card img {
+	border: thick dashed black;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 0 50%;
+}
+/* todo copiado de motion.css de el */
+/* 
+Transiciones
+  transition-property
+  transition-duration
+  transition-timing-function: none linear ease ease-in ease-out ease-in-out steps
+  transition-delay
+  transition: property duration timing-funciton delay
+
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties  las que si se pueden animar
+*/
+.transition .box {
+	background-color: magenta;
+	transition: none; /* es un shorthand */
+	transition-property: background-color; /* de lo que se trata la transicion */
+	transition-duration: 500ms; /* cuanto tarda la animacion en finalizar */
+	transition-timing-function: ease;
+	transition-delay: 0.5s; /* cuanto espera antes de empezar y finalizar */
+	transition: border-color 1s ease 0.5s; /* reemplaza la transicion anterior */
+	transition: all 3s ease 0.5s; /* agarra todo y lo hace transicion */
+}
+.transition .box:hover {
+	background-color: cyan;
+	border-color: lightblue;
+	border-radius: 50%;
+	border-style: dashed; /* se activa pero no se anima. Hay propiedades no animables
+  pero justo esta con el border radius queda re cheta */
+}
+.transition .card {
+	transition: opacity 1s ease-out, border-color 3s steps(5),
+		/* steps reemplaza ease y se divide en la cantidad de pasos que le pasemos */
+			filter 2s ease-in 1s,
+		box-shadow 1.5s linear 2s; /* puedo organizarlos con el delay */
+}
+.transition .card:hover {
+	opacity: 0.75;
+	border-color: tomato;
+	filter: blur(0.1rem);
+	box-shadow: 1rem 1rem 2rem 0.5rem black;
+}
+.transition .card img {
+	transition: object-position 2s ease-in-out 3s;
+}
+.transition .card img:hover {
+	object-position: 100% 50%;
+}
+.transform-2d img {
+	transition: transform 2s ease, 5s;
+}
+.transform-2d img:hover {
+	transform: none;
+	transform: translateX(4rem);
+	transform: translatey(-3rem); /* reemplaza a x */ /* -y va para arriba, wtf */
+	transform: translate(4rem, 3rem); /* (x,y) */
+	transform: translate(50%, -50%); /* el 50% de la caja .card */
+	transform: scaleX(2); /* el doble */
+	transform: scaleY(0.5);
+	transform: scale(1.5, 2); /* (x,y) */
+	transform: scale(-1, -1); /* se voltea */
+	/* la linea de eje es un palo que atravieza la imagen y esta gira en el */
+	transform: rotateX(60deg); /* gira en 3d, en el eje x de arriba para abajo */
+	transform: rotateX(90deg); /* desaparece */
+	transform: rotateY(90deg);
+	transform: rotateY(180deg);
+	transform: rotateZ(180deg);
+	transform: rotate(); /* en z, son lo mismo pero sin confusion */
+	transform: skewX(45deg); /* lo vuelve un paralelo gramo, rota en z a su vez*/
+	transform: skewX(90deg); /* desaparece */
+	transform: skewY(45deg);
+	transform: skewY(180deg);
+}

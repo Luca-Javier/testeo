@@ -1,0 +1,178 @@
+* {
+	box-sizing: border-box;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	font-size: 16px;
+}
+.box {
+	margin: 20px auto;
+	border: medium solid black;
+	width: 200px;
+	height: 200px;
+}
+.shadow {
+	text-align: center;
+	column-rule: navy;
+	font-size: 2rem;
+	/* blur-radius: desenfoque */ /* spread-blur: tamaño sombra */ /* estos 2 no tienen valores negativos */
+	/* box-shadow:mov-x mov-y blur-radius spread-blur color inset/ouset ; */
+	box-shadow: 1rem 1rem 1rem 2rem blue;
+	box-shadow: -1rem -1rem 1rem 0rem red;
+	box-shadow: -1rem -1rem 1rem 0rem gray outset; /* outser es default */
+	box-shadow: -1rem -1rem 1rem 0rem gray inset; /* adentro de la caja */
+	/* text no tiene el spread ni inset */
+	text-shadow: -0.7rem -0.7rem 0.15rem steelblue;
+}
+.multiple {
+	box-shadow: 1rem 1rem 1rem 1rem blue, 0.5rem 0.5rem 0.5rem 0.5rem gray inset,
+		2rem 2rem 0.5rem 1.5rem pink;
+	margin-bottom: 70px;
+}
+.filter-drop-shadow {
+	/* box-shadow: -1rem -1rem 1rem 0rem gray inset; */ /* wtf, alto bug */
+	/* filter: drop-shadow(mov-x mov-y blur-radius color); */
+	filter: drop-shadow(1rem 1rem 0rem red);
+}
+.image {
+	box-shadow: -1rem -1rem 2rem 1rem red;
+	height: auto;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	filter: drop-shadow(
+		1rem 1rem 0.25rem orange
+	); /* se ajusta a los bordes de un PNG */
+}
+.lineales1 {
+	margin: 0 120px;
+	display: inline-block;
+	background-image: linear-gradient(red, green, blue);
+}
+.lineales {
+	margin: 0 100px;
+	display: inline-block;
+	background-image: linear-gradient(red, green); /* minimo 2 colores necesita */
+	background-image: linear-gradient(45deg, red, green, blue);
+	background-image: linear-gradient(270deg, red, green, blue);
+	background-image: linear-gradient(
+		to top,
+		red,
+		green,
+		blue
+	); /* to xx es sobre el ultimo color */
+	background-image: linear-gradient(to right, red, green, blue);
+	background-image: linear-gradient(to bottom right, red, green, blue);
+	/* puedo hacer que ocupen mas espacio */
+	background-image: linear-gradient(to bottom right, red 30%, green, blue);
+	background-image: linear-gradient(
+		to right,
+		green 33%,
+		white 34% 66%,
+		red 67%
+	); /* puedo asignar el espacio que ocupan. En white puse de donde a donde */
+	/* actu: en el primer y ultimo valor se da por echo que empiezan en 0% y terminan en 100% */
+}
+.radiales {
+	background-image: radial-gradient(circle 8rem, cyan, steelblue, aquamarine);
+	/* predomina el ultimo color como si fuera el background y los primeros son el circulo */
+	background-image: radial-gradient(
+		circle 8rem at top,
+		cyan,
+		steelblue,
+		aquamarine
+	); /* at center es default */
+	background-image: radial-gradient(
+		circle 8rem at top right,
+		cyan,
+		steelblue,
+		aquamarine
+	);
+	background-image: radial-gradient(
+		ellipse 100px 40px at center,
+		cyan,
+		steelblue,
+		aquamarine
+	); /* ellipse es un ovalo y necesita valore de radio de x e y */
+	background-image: radial-gradient(circle 6rem, red 50%, white 50%);
+	/* es como marcar el 50% del radio*/
+}
+.conicos {
+	background-image: conic-gradient(red 50%, green 50% 75%, blue 75%);
+	background-image: conic-gradient(red 25%, green 50% 75%, blue 75%);
+	background-image: conic-gradient(
+		from 180deg,
+		red 50%,
+		green 50% 75%,
+		blue 75%
+	); /* con from cambio donde es 0 dando por echo que sabemos que es como un circulo */
+	background-image: conic-gradient(
+		from 90deg,
+		blue 33%,
+		white 33% 66%,
+		red 66%
+	);
+}
+.rpLineal {
+} /* 1:08:36  me aburrí. Paso a darkmode*/
+.darkmode {
+	background-color: white;
+	color: black;
+	filter: invert(
+		1
+	); /* invierte los colores. Le ponemos lo colores bases así ya los tiene */
+}
+.darkmode > * {
+	filter: invert(1);
+} /* como invierte todo, tenemos que reinvertir los elementos asi tienen el color que queremos
+, es una forma rapida de hacer el dark mode */
+/* 19.Formas (shape-outside) */
+.shape {
+	border: thick solid black;
+	padding: 1rem;
+	margin: 0 auto 5rem; /* top, horizontal, abajo */
+	max-width: 800px;
+}
+.shape img {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover; /* esto era como para hacerlo sin el bg-image */
+	object-position: 0 50%; /* empieza de la izq y a la mitad vertical */
+}
+.shape p {
+	font-size: 1.25rem;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.shape-1 {
+	margin: 4rem 2rem;
+	shape-outside: circle();
+	shape-outside: ellipse(); /* es mas ovalado y ocupa mas arriba y abajo */
+}
+.shape-2 {
+	margin: 4rem 2rem;
+	shape-outside: circle();
+}
+.shape-3 {
+	margin: 4rem 2rem;
+	shape-outside: polygon(
+		1% 100%,
+		99% 100%,
+		74% 65%,
+		37% 61%,
+		36% 24%,
+		0% 0%
+	); /* https://bennettfeely.com/clippy/ */ /* con esa pag puedo crear formas y copiarlas
+  la imagen no adoptó la forma pero visible pero el texto si lo respeta */
+}
+.clip-path {
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+	object-position: 0 50%;
+	clip-path: polygon(1% 100%, 99% 100%, 74% 65%, 37% 61%, 36% 24%, 0% 0%);
+}

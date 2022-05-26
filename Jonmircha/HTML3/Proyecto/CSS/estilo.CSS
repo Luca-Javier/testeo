@@ -1,0 +1,68 @@
+* {
+	box-sizing: border-box;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	font-size: 16px;
+	margin: 0;
+	--nav-conteinter-witdh: clamp(250px, 45vw, 350px);
+}
+.title {
+	text-align: center;
+	font-size: 4rem;
+}
+.miNav {
+	--margin-nav-horz: min(2rem, 2vw);
+	margin-top: 100px;
+	top: 0px;
+	margin-left: var(--margin-nav-horz);
+	padding: 1rem;
+	position: sticky;
+	background-color: black;
+	/* overflow: hidden; */
+	color: white;
+	/* 	max-width: 300px;
+	min-width: 200px; */
+	width: clamp(199px, 40vw, 300px);
+	max-height: 70vh;
+	min-height: 400px;
+}
+.miNav ul {
+	padding-inline-start: 0; /* lo saque de la consola */
+}
+.miNav ul > * {
+	margin: 2rem auto;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+ul li a {
+	color: white;
+}
+.nav-conteiner {
+	/* background-color: aquamarine; */
+	top: 0;
+	position: sticky;
+	display: inline-block;
+	height: 110vh;
+	width: var(--nav-conteinter-witdh);
+	border-right: thin solid black;
+}
+.content-page {
+	text-align: center;
+	background-color: rgb(223, 211, 211);
+	top: 100px;
+	position: absolute;
+	display: inline-block;
+	margin: 0 auto;
+	width: calc(100vw - var(--nav-conteinter-witdh));
+}
+.content-page main > * {
+	/* margin: 0 auto; */ /* no se porque necesite poner el alling center en el article */
+	font-size: 2rem;
+}
+.history {
+	margin-left: 2rem;
+	text-align: left;
+}
+img {
+	margin: 20px;
+}

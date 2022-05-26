@@ -1,0 +1,98 @@
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: "Times New Roman", Times, serif;
+}
+body {
+	margin: 0;
+}
+.slides {
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll; /* es necesario pero no se por que */
+	/* scroll-snap-type: [x | y | inline | block | both] [mandatory | proximity]; */
+	scroll-snap-type: none; /* default */
+	scroll-snap-type: y mandatory; /* mandatory = obligatorio. O sea apenas scrolleo un cacho ya se mueve todo */
+}
+.slide:nth-child(even) {
+	background-color: blueviolet;
+}
+.slide {
+	background-color: steelblue;
+	margin: 0 auto;
+	width: 100%;
+	height: inherit;
+	/* flexbox */
+	display: flex;
+	flex-direction: column; /* como que default es horizontal pero lo pongo en vertical */
+	justify-content: center;
+	align-items: center;
+	font-size: 3vw;
+	color: lightblue;
+	scroll-snap-align: center; /* defino donde quiere que el scroll centre la atencion */
+}
+.slide-conteiner {
+	width: 80%;
+	height: inherit;
+	/* text-align: center; */ /* tendria que por ahi poner un padding para que este todo centrado
+  pero si pongo width: 80% ya se hace solo y puedo alinear las letras a cualquier lado */
+}
+/* todo mal loco */
+tren {
+	border: medium solid orangered;
+	width: 100%;
+	height: 50%;
+	overflow-x: hidden;
+	display: grid; /* como que genera filas y colmnas */
+	grid-template-columns: repeat(5, 100%); /* 5 columnas que ocupan el 100% */
+}
+tren-conteiner {
+	overflow-x: scroll;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: navy;
+}
+tren-slide-conteiner {
+	height: 100%;
+	height: 100%;
+}
+tren:nth-child(even) {
+	background-color: cornflowerblue;
+}
+h3 {
+	margin-top: 0;
+}
+.tren {
+	border: thick solid yellow;
+	width: 100%;
+	height: 50%;
+	overflow-x: hidden;
+}
+.tren-conteiner {
+	display: grid;
+	grid-template-columns: repeat(5, 100%);
+	overflow-x: scroll;
+	height: 100%;
+	width: 100%;
+	scroll-snap-type: x mandatory;
+	scroll-snap-type: inline proximity; /* inline es como x y block es como y. No se las diferencias */
+}
+.tren-slide {
+	font-size: 3rem;
+	text-align: center;
+	background-color: navy;
+	scroll-snap-align: center;
+}
+.tren-slide:nth-child(even) {
+	background-color: cornflowerblue;
+}
+h2,
+p {
+	background-image: linear-gradient(45deg, magenta, yellow 60%);
+	/* como no son soportados por los navegadores, se les pone un webkit */
+	-webkit-background-clip: text; /* bg-clip era para decir donde empieza la imageny esto es como para decir que queremos que sea el text */
+	-webkit-text-fill-color: transparent; /* para que ignore el color del color(default) */
+}

@@ -1,0 +1,53 @@
+body {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: sans-serif;
+	margin: 0;
+}
+img {
+	max-width: 50%;
+	height: auto;
+}
+header {
+	text-align: center;
+	background-color: black;
+	position: sticky;
+	top: 0;
+}
+header a {
+	text-align: center;
+	margin: 0 10px;
+}
+header a:visited,
+header a {
+	color: greenyellow;
+}
+header a:hover {
+	color: green;
+}
+header main {
+	color: yellowgreen;
+	font-size: 2rem;
+}
+h2 {
+	margin: 0;
+}
+.slide {
+	/* padding-top: 4rem; */ /* para que el sticky no tape el subtitulo pero termina quedando feo */
+	padding: 1rem;
+	margin: 0;
+	width: 100%;
+	min-height: 100vh;
+	color: blueviolet;
+	background-color: navy;
+}
+.slide:nth-child(even) {
+	background-color: steelblue;
+}
+[id] {
+	scroll-margin-top: 6.5ex; /* usamos ex porque la x es la letra mas alta del abecedariox. Ex = mitad de rem aprox */
+	/* cuando scrolleamos con un link local deja un margen, en este caso para que el sticky no tape el subtitulo*/
+}
+:root {
+	scroll-behavior: smooth;
+} /* no sirve si lo ponemos en el body */
