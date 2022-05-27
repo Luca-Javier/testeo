@@ -102,4 +102,72 @@ Transiciones
 	transform: skewX(90deg); /* desaparece */
 	transform: skewY(45deg);
 	transform: skewY(180deg);
+	/* 
+    matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )
+    https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix()
+  */
+	transform: matrix(1, 2, 2, 1, 20, 10); /* pesa mucho hablando sobre proceso */
+	transform: translate(25%, -50%) rotate(90080deg) scale(1.5, 1.5); /* así puedo usar 2 o mas */
+}
+.transform-3d img {
+	transition: transform 2s ease;
+}
+.transform-3d {
+	perspective: 10rem;
+}
+
+.transform-3d img:hover {
+	transform: translateZ(4rem); /* no hace nada */
+	transform: perspective(1px) translateZ(100px); /* necesito perspectiva que sería la distancia entre nosotors y el objeto */
+	transform: perspective(10rem) translateZ(-100px);
+	transform: translateZ(
+		100px
+	); /* si le pongo la perspectiva al contenedor padre me ahorro todo */
+	transform: translate3d(2rem, 50%, -4rem);
+	/* me aburri */
+}
+@keyframes spinner {
+	0% {
+		/* el % es de la animacion */
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.loading-cont {
+	text-align: center;
+}
+.spinner {
+	display: inline-block;
+	background-color: white;
+	width: 5vw;
+	height: 5vw;
+	margin: 0 auto;
+	border: 0.5vw solid #00000011;
+	border-left-color: cyan; /* la barra de carga */ /* puedo ponerla en top o en otro lado si no me gusta */
+	border-radius: 50%;
+	animation: spinner 1s ease infinite;
+}
+.btn {
+	position: relative;
+	border: none;
+	border-radius: 0.25rem;
+	padding: 0.2rem;
+	width: 14rem;
+	height: 2.5rem;
+	font-size: 1.25rem;
+	font-weight: bold;
+	cursor: pointer;
+	overflow: hidden;
+	box-shadow: 0.25rem 0.25rem 0.5rem 0.25rem rgba(0, 0, 0, 0.15);
+}
+.anim-btn::after {
+	/* no entiendo lo del after */
+	content: "";
+	position: absolute; /* se pega a la esquina de arriba derecha automaticamente */
+	bottom: 0;
+	width: 100%;
+	height: 0.25rem;
+	background-color: red;
 }
