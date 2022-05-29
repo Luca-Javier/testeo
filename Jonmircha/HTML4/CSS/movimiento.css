@@ -167,7 +167,277 @@ Transiciones
 	content: "";
 	position: absolute; /* se pega a la esquina de arriba derecha automaticamente */
 	bottom: 0;
-	width: 100%;
+	width: 0;
 	height: 0.25rem;
 	background-color: red;
+	transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+.anim-btn:hover::after {
+	width: 100%;
+}
+.to-left::after {
+	left: 0;
+}
+.to-center:after {
+	left: 50%;
+}
+.to-center:hover::after {
+	/* se va moviendo a la izquierda mientras se agranda hacia la derecha  */
+	left: 0;
+}
+.to-right::after {
+	right: 0;
+}
+/* mi test */
+.testAfter {
+	margin: 30px auto 0;
+	/* padding-top: 15px; */
+	text-align: center;
+}
+.testAfter:after {
+	background-color: red;
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 4px;
+	bottom: 0;
+	transition: width 0.5s ease /* , left 0.5s ease */;
+	left: 0;
+}
+.testAfter:hover::after {
+	width: 100%;
+}
+.bg-gradient {
+	background-image: linear-gradient(to right, pink, violet, orange, red);
+	background-size: 300% 100%; /* width y height */
+	transition: background-position 0.5s ease;
+}
+.bg-gradient:hover {
+	background-position: 100% 100%;
+}
+.tabs-menu {
+	position: relative; /* esto es necesario */
+	margin: 0 auto;
+	background-color: tomato;
+	border-radius: 1rem;
+	width: 70%;
+	height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center; /* verticalmente */
+}
+.tabs-menu input {
+	display: none;
+}
+.tabs-menu label {
+	cursor: pointer;
+	z-index: 1; /* este si */
+	position: relative;
+	width: calc(100% / 4);
+}
+.tabs-menu label:hover {
+	color: white;
+}
+.tabs-menu input:checked + label {
+	/* la sec 4 no se vuelve blanco pero lo mantengo para un ejemplo */
+	/* espero el condicional de la pseudoclase y modifico el label */
+	color: white;
+}
+.tab-bg-hover {
+	position: absolute;
+	z-index: 0; /* no hace falta este */
+	height: 2rem;
+	width: calc(100% / 4);
+	border-radius: 0.5rem;
+	background-image: linear-gradient(red, orange);
+	transition: transform 0.3s ease;
+}
+#tab-1:checked ~ .tab-bg-hover {
+	transform: translateX(0);
+}
+#tab-2:checked ~ .tab-bg-hover {
+	transform: translateX(100%); /* su tmaaño */
+}
+
+#tab-3:checked ~ .tab-bg-hover {
+	transform: translateX(200%);
+}
+
+#tab-4:checked + .tab-bg-hover {
+	transform: translateX(300%);
+}
+#burguer-btn {
+	display: none;
+}
+.burguer-label {
+	position: fixed;
+	z-index: 999;
+	cursor: pointer;
+	right: 1rem;
+	bottom: 1rem;
+	width: 3rem;
+	height: 3rem;
+	/* opacity: 0.25; */
+	height: calc(
+		3rem / 5
+	); /* porque los 3 bloques rojos y los 2 blancos de los medios son 5 dividido el tamaño de la caja */
+	background-color: red;
+	border-radius: 0.3rem;
+	transform: rotate(0deg) translateY(-1.8rem);
+	transition: transform 1s ease, background-color 0.5s ease;
+	transform-origin: top left; /* si el centro esta en esa ezquina, tenemos la ventaja de que solo rotando ya se pone en el lugar de una x perfecta(al final necesitamos el translate xd) */
+}
+.burguer-label::after,
+.burguer-label::before {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 0.6rem;
+	background-color: red;
+	border-radius: 0.3rem;
+	transition: transform 1s ease;
+}
+.burguer-label::before {
+	transform: translateY(-1.2rem);
+}
+.burguer-label::after {
+	transform: translateY(
+		-1ex
+	); /* como se puso abajo de o escrito, le puse que suba un 1ex */
+}
+#burguer-btn:checked + .burguer-label {
+	background-color: transparent; /* para que la del medio desaparezca */
+}
+#burguer-btn:checked + .burguer-label::before {
+	transform: rotate(45deg) translate(-0.5rem, 0.6rem); /* fail */ /* tengo la conclusion de que no agarra y se mueve restando o sumando a lo que tenía antes, sino que es como un grafico donde las posiciones estan ocupadas */
+	transform: rotate(45deg) translate(1.2rem, 1.2rem); /* lo hice un poco al azar xd. Jon le había puesto diferntes posiciones a los before y after*/
+}
+#burguer-btn:checked + .burguer-label::after {
+	transform: rotate(-45deg) translate(0.7rem, calc(-1.2rem - 1ex)); /* la punta de arriba izquierda queda alineada a la esquina de un cuadrado imaginario, pero la primera barra no, en esa queda alineada la punta de abajo isquierda y por eso hay lío y solo vamos a mover esa */
+	/* fail */
+	transform: rotate(-45deg) translate(0, 0);
+}
+.burguer-menu {
+	position: fixed;
+	z-index: 998;
+	width: 90vw;
+	height: 90vh;
+	left: calc(
+		(10vw / 2) - 12px
+	); /* le reste lo del scroll. No estoy seguro de que sea 12px */
+	bottom: calc(10vh / 2);
+	/* left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0; */
+	background-color: gray;
+	border: medium solid red;
+	/* margin: 0 auto; */
+	/* display: none; */
+	opacity: 0;
+	bottom: -100cm;
+	left: 0; /* lo saco de la pagina asi no uso display none y puedo usar el opacity sin tener los links invisibles molestando */
+	transition: opacity 1s ease, left 1.5s ease;
+}
+.burguer-conteiner {
+	margin: 50px 0 0 100px;
+}
+.burguer-conteiner > * {
+	display: block;
+	padding: 20px;
+}
+#burguer-btn:checked ~ .burguer-menu {
+	opacity: 1;
+	bottom: calc(10vh / 2);
+	left: calc((10vw / 2) - 12px);
+	/* display: block; */
+}
+.modal {
+	position: fixed;
+	z-index: 996;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* opacity: 0; */ /* no entiendo porque afecta al elemento hijo. Puede ser que tenga sentido */
+	background-color: #0008;
+	transition: opacity 0.5s ease;
+	pointer-events: none; /* esto soluciona el problema de antes de pone opacity pero no display none */
+	opacity: 0;
+	right: 0; /* se sobrescriben EJ: left a right pero en fixed como que empieza en todos lados y ocupa toda la pantalla */
+}
+.modal:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+.modal-conteiner {
+	position: relative; /* para poner la x con un absolute despues */
+	border: thick double red;
+	background-color: white;
+	border-radius: 2rem;
+	z-index: 997;
+	padding: 40px;
+	width: 60%;
+	height: 60%;
+	opacity: 1;
+	display: flex;
+	flex-direction: row; /* en linea(default) */
+	flex-direction: column;
+	text-align: left;
+	overflow: hidden;
+	justify-content: center;
+}
+.modal-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	width: 3rem;
+	font-size: 2rem;
+	background-color: #f00a;
+	color: white;
+	font-weight: bold;
+	border-radius: 50%;
+	text-align: center;
+	text-decoration: none;
+	line-height: 3rem; /* altura de linea, no de letra */
+	border: medium solid black;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.modal-close:hover {
+	background-color: red;
+	transform: scale(1.1);
+}
+/* star wars */
+@keyframes introStarWars {
+	0% {
+		transform: perspective(100vh) rotateX(15deg) translateY(100%);
+	}
+	100% {
+		transform: perspective(100vh) rotateX(25deg) translateY(-200%); /* es como un 300  */
+	}
+}
+.star-wars {
+	padding: 50px;
+	background-image: url(../assets/stars.gif);
+	width: 100%;
+	height: 100vw;
+	overflow: hidden;
+	font-size: 1.5rem;
+	line-height: 4rem;
+}
+.star-wars-conteiner {
+	animation: introStarWars 10s linear infinite;
+	color: goldenrod;
+	margin: 20px;
+	text-align: justify; /* es como un left */
+}
+.star-wars h2 {
+	text-align: center;
+	font-size: 2rem;
+}
+* {
+	box-sizing: border-box;
+	/* ponerlo en el html no le afecto article star-wars */
 }

@@ -1,40 +1,47 @@
-.hijos-directos{
-  background-color: coral;
+.hijos-directos {
+	background-color: coral;
 }
-.hijos-directos>*{ /* >b no anda porque no es directo */
-background-color: aquamarine;
+.hijos-directos > * {
+	/* >b no anda porque no es directo */
+	background-color: aquamarine;
 }
-.hijos-descendientes b{
-  background-color: blueviolet;
+.hijos-descendientes b {
+	background-color: blueviolet;
 }
-.hermanos-general~li{   /* puedo por * tmb */ /* le comparte a los hermanos que esten por debajo sin incluirse ella misma */
-  background-color: hotpink;
+.hermanos-general ~ li {
+	/* puedo por * tmb */ /* le comparte a los hermanos que esten por debajo sin incluirse ella misma */
+	background-color: hotpink;
 }
-.hermanos-adyacentes+*{ /* como ~ pero solo agarra 1 */
-  background-color: khaki;
+.hermanos-adyacentes + * {
+	/* como ~ pero solo agarra 1 */
+	background-color: khaki;
 }
-.selector-atributos a[href]{ /* no hace falta pasar por todos los hijos, puedo saltar directo al a */
-  background-color: greenyellow;
+.selector-atributos a[href] {
+	/* no hace falta pasar por todos los hijos, puedo saltar directo al a */
+	background-color: greenyellow;
 }
-.selector-atributos [target="_blank"]{ /* no hace falta la a, engloba a todo lo que tenga ese atributo */
-  font-weight: bold;
+.selector-atributos [target="_blank"] {
+	/* no hace falta la a, engloba a todo lo que tenga ese atributo */
+	font-weight: bold;
 }
-.selector-atributos a[href*="docs"]{ /* usamos * sí contiene esa palabra */
-  background-color: burlywood;
+.selector-atributos a[href*="docs"] {
+	/* usamos * sí contiene esa palabra */
+	background-color: burlywood;
 }
 /* el ^ es sí comienza con la palabra */
-.selector-atributos a[href^="https://"] {
-  color: darkgreen;
+.selector-atributos a[href^="https://"]
+{
+	color: darkgreen;
 }
 /* el $ es si termina con la palabra */
 .selector-atributos a[href$="be.com"] {
-  background-color: red;
-  color: black;
+	background-color: red;
+	color: black;
 }
 /* parece que dentro de los atributos el ~ tmb sirve para ver si contiene la palabra(la palabra tiene que esta sola y dividida por espacios 
 y no puede terminar con un espacio acá donde lo seleccionamos, aunque en la clase del html hayan 2 espacios entre atributo, tampoco vale la palabra incompleta porque cuando termina van si o si espacios) */
 .selector-atributos a[class~="cursos"] {
-  text-decoration: none;
+	text-decoration: none;
 }
 /* con | (pipe) selecciono el primer atributo de la clasey si tiene un - adelante(pegado)lo selecciono
 sirve para dividir en secciones una clase y agarrarlas de a una(en verdad si usas simepre esto puede ser muy util y todo un estilo unico)
@@ -42,6 +49,21 @@ sirve para dividir en secciones una clase y agarrarlas de a una(en verdad si usa
 pro tip: mantener el dedo arriba de lo quiero corroborar da mucha info aunque no lo crea*/
 
 .selector-atributos a[class|="como-estas"] {
-  font-size: 2em;
-  background-color: aquamarine;
+	font-size: 2em;
+	background-color: aquamarine;
+}
+/* mis tests */
+.miTest > *,
+.miTest2 > * {
+	font-size: 2rem;
+	background-color: tomato;
+	border: thin solid black;
+}
+.li1:hover ~ li {
+	/* con ~ agarro a todos los hermanos que especifique */
+	color: red;
+}
+.li11:hover + * {
+	/* con + solo agarro al de abajo y si el de abajo no es lo que especifique no lo agarra. Si pongo * agarra todo, el div */
+	color: red;
 }

@@ -23,6 +23,7 @@
   <h1>Transformaciones</h1><br>
   <section class="transforms">
     <h2>Transformaciones en 2D</h2>
+    <!-- con esta imagen que se sale de la pantalla habría que poner un overflow hidden en el html porque el scroll se vuelve loco -->
     <article class="card transform-2d">
       <img src="assets/puesta-sol.jpg" alt="">
     </article>
@@ -41,8 +42,97 @@
     <button class="btn anim-btn to-left">Animación Izquierda</button>
     <button class="btn anim-btn to-center">Animación Centro</button>
     <button class="btn anim-btn to-right">Animación Derecha</button>
-    <button class="btn anim-btn bg-gradient">Fondo con gradiente</button>
+    <button class="btn bg-gradient">Fondo con gradiente</button>
   </div>
+  <div class="loading-cont">
+    <div class="testAfter btn">tatantatan</div>
+    <h3>Menú de Pestañas <cite>(Tabs)</cite></h3>
+    <nav class="tabs-menu">
+      <input type="radio" id="tab-1" name="tabs">
+      <label for="tab-1">Seccion 1</label>
+      <input type="radio" id="tab-2" name="tabs">
+      <label for="tab-2">Seccion 2</label>
+      <input type="radio" id="tab-3" name="tabs">
+      <label for="tab-3">Seccion 3</label>
+      <!-- si lo muevo así, si anda en css el selector "+" -->
+      <label for="tab-4">Seccion 4</label><input type="radio" id="tab-4" name="tabs">
+      <div class="tab-bg-hover"></div>
+    </nav>
+    <h3>Menú</h3>
+    <a href="#modalID">Abrir modal</a>
+    <article class="modal" id="modalID">
+      <div class="modal-conteiner">
+        <a href="#cerrar" class="modal-close">X</a>
+        <h2>Esto es una ventana modal</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, fugiat ex porro quisquam architecto incidunt
+          dolorem perspiciatis voluptatum, illum vero ipsa nisi similique at vitae voluptatem perferendis quos. Eum,
+          vitae?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi facere, veniam illo, repudiandae quo
+          necessitatibus magnam dolore officia natus beatae sed libero temporibus non laboriosam! Architecto ab suscipit
+          magnam praesentium!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos debitis, quos error cum consequatur
+          consectetur, saepe nisi iste commodi tempora eaque dolorum quidem quis natus aut vel. Quia, hic dolores.
+        </p>
+        <ul>
+          <li><a href="">Enlace</a></li>
+          <li><a href="">Enlace</a></li>
+          <li><a href="">Enlace</a></li>
+          <li><a href="">Enlace</a></li>
+          <li><a href="">Enlace</a></li>
+        </ul>
+      </div>
+    </article>
+    <h2>Star Wars</h2>
+    <article class="star-wars">
+      <div class="star-wars-conteiner">
+        <h2>Episode III</h2>
+        <h3>
+          <p>
+            It is a period of civil war.
+            Rebel spaceships, striking
+            from a hidden base, have won
+            their first victory against
+            the evil Galactic Empire.
+          </p>
+          <p>
+            During the battle, Rebel
+            spies managed to steal secret
+            plans to the Empire's
+            ultimate weapon, the DEATH
+            STAR, an armored space
+            station with enough power to
+            destroy an entire planet.
+          </p>
+          <p>
+            Pursued by the Empire's
+            sinister agents, Princess
+            Leia races home aboard her
+            starship, custodian of the
+            stolen plans that can save
+            her people and restore
+            freedom to the galaxy....
+          </p>
+        </h3>
+      </div>
+    </article>
+
+  </div>
+  <!-- poner el boton abajo es buena idea porque en un celular si agarramos el celu con una mano el dedo gordo tiene mas facilidad para apretar a un boton que está abajo -->
+  <!-- este tipo de boton se llama amburguesa por que son 3 palitos apilados tipo panes y la carne -->
+  <input type="checkbox" id="burguer-btn">
+  <label for="burguer-btn" class="burguer-label">---</label>
+  <!-- creo que esos --- estan al pedo, pero como ya calcule las alturas lo voy a dejar -->
+  <nav class="burguer-menu" id="ventana">
+    <div class="burguer-conteiner">
+      <h1>Ventana modal</h1>
+      <a href="#" class="burguer-link">Seccion 1</a>
+      <a href="#" class="burguer-link">Seccion 2</a>
+      <a href="#" class="burguer-link">Seccion 3</a>
+      <a href="#" class="burguer-link">Seccion 4</a>
+      <a href="#" class="burguer-link">Seccion 5</a>
+    </div>
+  </nav>
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 

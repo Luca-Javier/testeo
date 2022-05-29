@@ -1,0 +1,15 @@
+html{
+    background-color: rgb(2, 90, 61);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+div.contenedorLLave{
+    background-color: beige;
+    border: solid 2px;
+    border-color: black;
+    max-height: 8rem;
+}
+.imagenLLave{
+    width: 8rem;
+    float: left;  
+}
+
