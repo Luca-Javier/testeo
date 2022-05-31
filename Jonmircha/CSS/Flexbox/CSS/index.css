@@ -1,1 +1,141 @@
-/* https://css-tricks.com/  Página recomendad donde hay mucha info */
+/* https://css-tricks.com/  Página recomendada donde hay mucha info 
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/  
+en este archivo vemos la seccion de "Properties for the Parent" de la página     */
+/* el eje principal es main size (x) pero hay una propiedad que puede cambiarlo */
+.conteiner {
+	margin: 30px auto;
+	background-color: #333;
+	/* padding: 1rem; */ /* como es en bloque, si no agregamos un padding ni se eve este fondo */
+	display: flex; /* se alinean horizontalmente de izquierda a derecha (por default) */
+	/* flex es como un elemento en bloque */
+	display: inline-flex; /* en linea */
+}
+.item {
+	background-color: #666;
+}
+.conteiner-block {
+	display: flex; /* la cajita esa es de la extension y con eso puedo abrir el machete */
+	background-color: #333;
+	flex-direction: row; /* fila. Default */
+	flex-direction: row-reverse; /* direccion en eje x o y */ /* como poner inline-flex. De echo si pongo inline flex se mantiene siempre a la izquierda */
+}
+.b2 {
+	display: inline-flex;
+	flex-direction: column-reverse;
+}
+.b3 {
+	/* wrap en español es envolver */
+	flex-wrap: nowrap; /* default */ /* Cuando las caja quedan afuera se genera un scroll x */
+}
+.b4 {
+	flex-wrap: wrap;
+}
+.item {
+	width: 20%; /* la b3 lo ignora porque prioriza mostrar todo en la pantalla. Si ponemos min-width lo cagamos igual */
+	border: medium solid gray;
+}
+.b5 {
+	height: 20vh;
+	display: flex;
+	flex-wrap: wrap;
+	/* flex-direction: row-reverse; */ /* no hace nada. No entiendo */
+	flex-direction: column;
+}
+.b6 {
+	flex-direction: column-reverse; /* los apilo en mi contenedor EJ: de principio a fin o de fin a principio; Ascendiente o descendiente graficamente */
+	flex-wrap: wrap-reverse; /* es como los apilo en mi contenedor EJ: de principio a fin o de fin a principio; Izquierda a derecha o derecha a izquierda */
+	flex-flow: column-reverse wrap-reverse; /* shorthand (direction wrap)*/
+}
+.b7 {
+	justify-content: flex-start; /* default */ /* define la alineacion de los elementos hijos respecto al eje principal que es flex-direction */
+	/* 
+  flex-start
+  center
+  flex-end (estos 3 son como los floats)
+  space-between  (el espacio sobrante queda entre los elementos, pero no hay espacio entre el borde del contenedor 
+  space-around  (como between pero pone tmb espacio entre los elementos y el contenedor) (el espacio que pone a los lados es la mitad de 1 espacio que hay en medio)
+  space-evenly  (como around pero pone el mismo espacio, que hay en los medios, en los bordes)
+  */
+	height: 30vh; /* los items ocupan todo el espacio del contenedor y no dejan paddings */
+	padding: 40px;
+	flex-direction: row;
+	justify-content: center; /* en la consola podes ver todos rapido */
+	justify-content: flex-start;
+	justify-content: flex-end;
+	justify-content: space-between;
+	justify-content: space-around;
+	justify-content: space-evenly; /* AHH los bordes son orillas */
+	outline: medium solid black;
+	outline-offset: -40px; /*  para diferenciar el padding */
+}
+.b8 {
+	flex-flow: column wrap; /* son de verticales los justify content */
+	justify-content: center;
+	justify-content: flex-start;
+	justify-content: flex-end;
+	justify-content: space-between;
+	justify-content: space-around;
+	justify-content: space-evenly;
+}
+/* el eje principal (x)(row)(main axis) es manejado por flex-direction */
+/* el segundo eje (y)(column)(cross axis) es manejado por aling items */ /* si cambio el direction el aling itmes afecta automaticamente al maix axis? */
+.b9 {
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 30px auto;
+	background-color: #333;
+	height: 30vh;
+	align-items: stretch; /* default */ /* ocupa todo el espacio, tipo bloque */
+	align-items: flex-start; /* arriba */
+	align-items: flex-end; /* abajo */
+	align-items: center; /* centro */
+	align-items: baseline; /* se ajusta a una linea invisible donde se escribe el texto */
+}
+.itemsNoWH > * {
+	width: auto;
+	height: auto;
+}
+.itemChange > *:nth-child(3) {
+	font-size: 5rem;
+	text-decoration: underline;
+	text-decoration: 2px underline;
+	border: thin;
+}
+.itemChange > *:nth-child(2) {
+	text-decoration: 2px underline;
+	border-right: thin;
+}
+.itemChange > *:nth-child(4) {
+	text-decoration: 2px underline;
+	border-left: thin;
+}
+.change2 > *:nth-child(15) {
+	font-size: 5rem;
+}
+.ejemplo {
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 20px;
+}
+.b10 {
+	flex-flow: row wrap;
+	align-items: flex-start;
+	align-items: center;
+	align-items: flex-end;
+	align-items: stretch;
+}
+/* align-item alinea el item y a los lados por el contenido, o sea que en el medio de un center va un espacio */
+/* aling-content alinea el contenido. Si usamos un center el contenido se pone en el medio */
+.b11 {
+	flex-flow: row wrap; /*  si cambio a column los align que trabajan en main axis que era el eje x, ahora es eje y, y los align trabajan en exe x  */
+	align-items: stretch;
+	align-content: center; /* align content cuando usamos nowrap no sirve de nada */
+	align-content: flex-start;
+	align-content: flex-end;
+	align-content: space-around;
+	align-content: space-between;
+	align-content: space-evenly;
+	align-content: center;
+} /* para usar stretch en cualqueir eje, los items no tienen que tener tamaños expecificos.
+justify width
+align height */

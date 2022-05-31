@@ -1,0 +1,113 @@
+/*  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+En este archivo vemos la seccion de "Properties for the Children"  */
+* {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+.conteiner {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #333;
+	margin: 30px auto;
+	padding: 20px;
+	outline: thin solid black;
+	outline-offset: -20px;
+}
+.wh {
+	width: 100%;
+	height: 30vh;
+}
+.item {
+	border: thin solid gray;
+	background-color: #666;
+}
+.grow {
+	width: 1200px; /*  nuestro contenedor mide 1200px y cada item 100px */
+	padding: 0px;
+	outline: none;
+}
+.grow > * {
+	width: 100px;
+	/* aprovecha para que los items se dividan el espacio que sobre en el conteiner */
+	flex-grow: 0; /* default. No acepta negativos */
+	flex-grow: 1; /* cada item va a valor 400px porque 3 items que miden 100px pero ignoran su tamaño y agarran el sobrante
+  terminan agarrando 400px los 3 items del contenedor que mide 1200px */
+}
+.grow > *:nth-child(2) {
+	/* flex-grow: 2; */ /* no crece el doble sino que agarra el sobrante y como tenemos 3 items lo divide en 3 pero este item se agrega el doble de porsion y le deja a los otros 1/2 */
+	flex-grow: 2; /* el calculo sería que si un item (este) vale el doble entonces son como 4 items por lo que
+  900 (espacio sobrante) / 4 = 225 + 100 (originales) = 325
+  entonces sobra 2*75 = 150 + 900/3 + 100 = 550 */
+	/* flex-grow: 10; */
+} /* se me ocurre que usar el grow con wrap no sirve de nada (el wrap). Actu: creo que serviría pero primero se tiene que desvordar. En este caso lso items miden 100px */
+.shrink > * {
+	width: 100px;
+	/* las cajas se encojen segun el tamaño necesario para que se vean todos, o sea si el contenedor se achica */
+	flex-shrink: 1; /* default. No acepta negativos */ /* valor booleano */
+}
+.shrink > *:nth-child(2) {
+	flex-shrink: 2; /* tiene menos priridad  /  se reduce mas */
+	flex-shrink: 10; /* con un valor alto se reduce y los otros se mantienen intactos */
+	flex-shrink: 0; /* no se achica  /  se desactiva(false) */
+	flex-shrink: 2; /* como maximo se achica hasta que el contenido no se pueda mover mas */
+}
+/* si cada item mide 100px pero el contenedor mide 250px
+los item 1 y 3 mediran 100 - 50/4 = 87.5
+y el item 2 medira 100 - (50/4)*2 = 75 */
+.shrink {
+	flex-grow: 1;
+	box-sizing: content-box;
+	width: 250px; /* al tener fijo el width del contenedor, no se achica y shrink no aprovecha que el contendor 
+  se achicó, entonces no anda */
+	width: min(
+		250px,
+		(100% - 40px)
+	); /* si uso content box necesito sumarle el padding  */
+}
+.basis {
+	height: 500px;
+	flex-flow: column; /* al poner column flex-basis pasa de width a height */
+}
+.basis > * {
+	/* es el tamaño del hijo en el main axis */ /* o sea el width o el height de toda la vida */
+	flex-basis: auto; /* default */
+	flex-basis: 100px; /* tiene prioridad al width y al height */
+	width: 200px;
+	height: 200px;
+}
+.flex > * {
+	flex: 0 1 auto; /* grow, shrink, basis */
+	flex: 1 0 200px; /* parece re al pedo activar el grow y usar el basis. Es uno o el otro */
+	flex: 1 1 200px;
+	flex: 0 1 200px;
+}
+.order {
+	flex-flow: row-reverse;
+}
+.order > * {
+	order: 0; /* default */
+	order: 10; /* ponerselos a todos es dejarlo tal como está en HTML, pero puedo ponerselos para organizar mejor otros orders (medio al pedo igual) */
+}
+.order > *:nth-child(2) {
+	order: 2;
+}
+.order > *:nth-child(4) {
+	order: 1;
+}
+.self {
+	flex-flow: column;
+}
+.self > * {
+	height: 100px;
+	align-self: stretch; /* default */ /* es como align item pero agrega solo a los elegidos  (para los hijos, no para el contenedor)
+  esto seguro tiene que ver con usar margin: 0 auto; ó text-align:center; */
+	/* 	align-self: ; */
+}
+.self > *:nth-child(2) {
+	align-self: flex-end;
+	align-self: center; /* si pongo column es el main axis */
+}
+.self {
+	align-items: center; /* tiene prioridad align-self */
+}
