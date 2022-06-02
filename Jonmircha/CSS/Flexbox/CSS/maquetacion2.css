@@ -1,0 +1,53 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+}
+.myconteiner {
+	/* max-width: 1200px; */
+	width: 100%;
+	/* margin: 0 auto; */
+}
+.myrow {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+.my-flex-item {
+	border: thin solid gray;
+	/* flex: 0 0 100%; */
+	/* max-width: 290px; */
+}
+@media (max-width: 10000px) {
+	.my-flex-item {
+		flex: 1 0 16%;
+	}
+}
+@media (max-width: 1200px) {
+	.my-flex-item {
+		flex: 1 0 25%;
+	}
+}
+@media (max-width: 992px) {
+	.my-flex-item {
+		flex: 1 0 33%;
+	}
+}
+@media (max-width: 768px) {
+	/* creo que la condicion es: mientras que min-width 576px sea posible ejecuto mi acicon */
+	/* si mi pantalla mide 700xp. Es posible tanto el min-widt:500 como el max-width: 100000px */
+	/* si la pantalla mi 400px, ya no es posible que el minimo sea 500
+  y si la pantalla mide 800px, ya no es posible que el maximo sea 700 */
+	.my-flex-item {
+		flex: 1 0 50%; /* 100/2 (cantidad de rows en una linea */
+	}
+}
+@media (max-width: 576px) {
+	/* este media sobrescribe al otro por lo que . Si el width es 800 los 2 son posibles.
+  por se tienen que ir activando en cascada*/
+	.my-flex-item {
+		flex: 1 0 100%;
+		/* max-width: none; */
+	}
+}
