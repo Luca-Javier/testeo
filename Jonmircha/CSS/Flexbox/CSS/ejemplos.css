@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0; /* en este caso para resetear los li */
+}
+body {
+	font-size: 16px;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.titulares {
+	padding: 1rem;
+	background-color: #222;
+	color: #eee;
+}
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+	width: 100%;
+}
+main {
+	/* sería como la plantilla ideal/tipica */
+	flex-grow: 1;
+}
+.menu ul {
+	list-style-type: none;
+}
+.header {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	/* flex-basis: 100px;  */ /* trabaja en el main axis que ahora es y/columnd, por lo que no puedo alterar el width */
+	/* gap: 10px; */ /* Nueva funcion */ /* no entiendo como anda pero trabaja los margenes de los items */
+	/* column-gap: 20px;
+	row-gap: 20px;
+	gap: 1000px 10px; */
+	/* al final no anduvo mas, no se que onda */
+}
+li {
+	padding: 0 0.5rem;
+}
+@media (min-width: 1024px) {
+	/* Nosotros empezariamos haciendo la pagina para celular y con estas
+  configuraciones la haríamos para pc */
+	.header {
+		flex-flow: row;
+		display: flex;
+		/* align-items: baseline; */ /* pro el h2 que es mas grande */
+		justify-content: space-between;
+	}
+	.menu ul {
+		display: flex;
+	}
+	.flex-conteiner {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.flex-item {
+		flex: 0 0 50%;
+	}
+	/* hacer zigzag con imagenes */
+	.order-1 {
+		/* opcion 1 en un item */
+		order: 1;
+	}
+	.flex-row-reverse {
+		/* opcion 2 en el conteiner */
+		flex-flow: row-reverse wrap;
+	}
+}
+.hero-image {
+	background-image: url("https://placeimg.com/1280/720/animals");
+	/* una pagina para solicitar imagenes randoms. Si pongo any en vez de animales me trae random */
+	color: white;
+	min-height: 100vh;
+	background-repeat: no-repeat;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+.hero-image div {
+	/* background-color: ; */
+	min-height: inherit; /* es la misma del padre */
+	display: flex;
+	/* da lo mismo fila o columna si solo tengo un item */
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 5vw;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+.flex-responsive {
+	display: flex;
+	flex-flow: row wrap;
+}
+.flex-responsive > * {
+	border: thin solid black;
+	flex: 1 0 200px; /* esos 200px se vuelven el valor minimo/aprox que va a tener cada cajita*/
+}

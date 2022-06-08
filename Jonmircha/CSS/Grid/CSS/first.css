@@ -1,0 +1,284 @@
+/* grid es mas para administrar lo que tenemos dentro de un conteiner. O sea con flexbox
+haríamos el conteiner y el orden y con grid administramos todo lo demas. (suposicion mia) */
+/* si lo pensas flexbox solo puede manera row o columns  pero grid usa los 2 a la vez.
+Grid es una cuadricula 6x6
+grid track: una fila o columna completa
+grid cell: una celda
+grid area: areas que son cudriculadas, siempre. Pueden ser cuadrados o rectangulos */
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: sans-serif;
+	scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+a[href="#top"] {
+	margin: 1rem;
+	display: block;
+	font-size: 2rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+p {
+	margin: 0;
+}
+
+h2 {
+	margin-top: 50vh;
+	text-align: center;
+}
+
+img {
+	margin: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.menu {
+	margin-bottom: 100vh;
+	font-size: 125%;
+}
+
+.menu li {
+	margin-bottom: 1rem;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	height: 80vh;
+	background-color: #222;
+	border: medium solid #000;
+}
+
+.item {
+	padding: 1rem;
+	font-size: 1.25rem;
+	background-color: #666;
+	border: medium solid #999;
+}
+.grid-explicit {
+	display: grid;
+	grid-template-columns: 50% 100px 1fr; /* fr  =  fraccion  (espacio sobrante)(tipo flex-grow) */
+	/* 3 columnas */
+	grid-template-rows: 2rem 20vh 30%; /* cuantas columnas queremos y con que medidas */
+	/* yo puedo darle tamaño a las 3 primeras filas. Pero si hay más, toman un
+  tamaño auto */
+	/* el item mas largo define el tamaño de los demás */
+	grid-template-columns: repeat(5, 20%);
+	grid-template-rows: repeat(4, 25%); /* 2 valores si o si  (N° , tamaño) */
+	/* aunque el deafault es auto, hay que ponerlo */
+	grid-template-rows: repeat(4, 25%);
+	grid-template-rows: repeat(4, auto);
+	grid-template-rows: repeat(4, 1fr);
+	/*  grid 4cx5r */
+	grid-template-columns: 20% 30% 30% 20%;
+	grid-template-columns: 20% repeat(2, 30%) 20%;
+	grid-template-rows: repeat(5, auto);
+	grid-row-gap: 1rem; /*  se parece al gap de flex-box */
+	grid-column-gap: 1rem;
+	grid-gap: 100px 2rem; /* row columnn */
+	column-gap: 2rem; /* tmb vale sin "grid-" */
+	/* este shorthand si es el usado */
+	gap: 1vh 1vw;
+	gap: 0;
+}
+.grid-explicit .item:nth-child(10) {
+	color: lightblue;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	/* short hand */
+	grid-row: 2 / 3;
+	grid-column: 3 / 5; /* son 4 columnas pero no contamos eso, contamos los bordes derechos (final) */
+	/* shorthand grid-row & column */
+	/* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+	grid-area: 2 / 3 / 3 / 5;
+	grid-area: 2 / 2; /* row y column (posicion nada mas) */
+	grid-area: 2 / 2 / 4 / 5;
+	/* item 10 tapado por el 16 */
+}
+.grid-explicit .item:nth-child(13) {
+	color: lightblue;
+	grid-area: 7 / 1 / span 2 / span 4; /* de donde estás, ocupa 2  /  expandite 2 */
+}
+.grid-explicit .item:nth-child(16) {
+	color: lightblue;
+	grid-area: 1 / 1 / span 3 / 3; /* 3 columnas en verdad son 2 */
+}
+.grid-line-names {
+	display: grid;
+	/* Grid 3cx3r */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr;
+	grid-template-rows: [r1] auto [r2] auto [r3] auto [r4] auto; /* auto pone todo los bloques del mismo tamaño
+  pero con fr al tener un bloque mas grande/alterado el fr vale menos  */
+	grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr;
+}
+.grid-line-names .item:nth-child(3) {
+	color: lightblue;
+	grid-row: r2 / r5;
+	grid-column: c1 / c5;
+	/* grid-area no funcioan con los nombres, tira error. Esto de los nombres no se usa */
+}
+/* si tenemos un 10x10. en la posiciones es 11x11 porque cuentan los bordes */
+.grid-areas {
+	display: grid;
+	/* Grid 2cx3r */
+	grid-template-columns: 1fr 200px; /* contenido y sidebar */
+	grid-template-rows: 100px auto 60px; /* header, contenido y footer */
+	grid-template-areas: /* es como un shorthand de grid-column y grid-row-start/end */
+		"header header"
+		"content sidebar" /* en una 1 fila van 2 columnas, no se separan con "" */
+		"footer footer"; /* una genialidad */
+	grid-template-rows: 100px repeat(2, 1fr) 60px;
+	grid-template-areas:
+		"header header"
+		"content sidebar" /* + */
+		"content ." /* . significa dejar una celda vacía */
+		"footer footer"; /* si pongo en la tercer row 2 content no se puede porque un area es cuadratica */
+}
+.header {
+	grid-area: header;
+}
+.article {
+	grid-area: content;
+}
+.sidebar {
+	grid-area: sidebar;
+}
+.footer {
+	grid-area: footer;
+}
+.grid-implicit {
+	/* Grid 4cx3r  =  12 items. Yo tengo 19 pero grid sigue apilandolos */
+	display: grid;
+	display: inline-grid; /* un elemento en linea que no tiene margenes laterales */
+	width: 40%; /* original tenia 80% y es en bloque */
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 200px);
+	/* mis 12 items se almacenan en estos (items explicitos) y 
+  los demas se ajustan a las columnas y mantienen row auto (tamaño)(filas implicitas) */
+}
+.grid-flow {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 150px);
+	grid-template-rows: repeat(1000, 150px);
+	/* si quiero poner 1000 filas pero solo tengo contenido para 4, voy a tener 4 y 
+  un espacio chiquito vacío esperando a que le agregen contenido */
+	grid-template-rows: repeat(3, 150px);
+	/* tengo contenido para 4 filas pero al tener 4 filas la ultima tiene fin y me genera
+  un quinto espacio vacío, por lo que pongo 3 filas así la ultima ocupa todo */
+	grid-auto-flow: row; /* default */
+	grid-auto-flow: column; /* los items se ordenan en columna */
+	/* los items sobrantes ya no estan en filas implicitas, sino en columnas implicitas */
+
+	grid-auto-rows: auto; /* default */ /* el tamaño que toman las filas implicitas */
+	grid-auto-rows: 100px;
+	grid-auto-flow: row;
+	/* el alto de los items implicitos */
+	grid-auto-columns: auto;
+	grid-auto-columns: 70px;
+	grid-auto-flow: column;
+	/* el ancho de los items implicitos es 70px. Y el tamaño de row si que no puede variar
+  porque si tengo un item mas alto ya no es una cuadricula donde todos los bordes tienen
+  que cruzar */
+}
+.grid-flow-dense {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	grid-auto-flow: row dense; /* dense solo sirve */
+	/* dense es para que cuando muevo un item o lo cambio de tamaño, el siguiente no
+  respete su lugar y lo ocupe, o sea no dejamos espacios vacíos */
+	grid-auto-flow: column;
+	grid-auto-flow: column dense;
+}
+.grid-flow-dense .item:nth-child(11) {
+	/* original 9 */
+	/* cambiar a 11 para ver column dense porque para que el 11 ocupe 3 rows tiene
+  que moverse a la siguiente columna. Los items son tipo display relative*/
+	color: lightblue;
+	grid-row: span 3; /* ocupa una fila implicita */
+	grid-column: span 3; /* solo tiene una columna para expandirse, asi que se pasa para abajo */
+}
+.grid-layers {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+}
+.grid-layers .item:first-child {
+	background-color: yellow;
+	grid-column: 1/3;
+	grid-row: 1 / 3;
+}
+.grid-layers .item:nth-child(2) {
+	background-color: steelblue;
+	grid-column: 3/5;
+	grid-row: 1 / 3;
+}
+.grid-layers .item:nth-child(3) {
+	background-color: greenyellow;
+	grid-column: 1/3;
+	grid-row: 3 / 5;
+}
+.grid-layers .item:nth-child(4) {
+	background-color: orange;
+	grid-column: 3/5;
+	grid-row: 3 / 5;
+}
+.grid-layers .item:nth-child(5) {
+	background-color: purple;
+	/* grid-column: 2/4;
+	grid-row: 2 / 4; */
+	/* r / c / r.end / c.end */
+	grid-area: 2 / 2 / 4 / 4;
+	opacity: 70%;
+}
+.grid-order {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	/* grid-auto-flow: column; */
+}
+.grid-order .item:first-child {
+	order: 0; /* defaul. Acepta negativos*/
+	order: 1; /* ahora es el ultimo */
+}
+.grid-order .item:nth-child(2) {
+	order: 2;
+}
+.grid-order .item:nth-child(4) {
+	order: -1;
+}
+.grid-align {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+	grid-template-rows: repeat(2, 200px);
+	justify-items: stretch; /* default */ /* alineo los items de las celdas en x*/
+	justify-items: center; /* centra el contenido de un item y AHHHHH
+  Cuando creamos template columns definimos el tamaño de de una columna, pero no el
+  tamaño del contenido, por eso cuando pongo center solo se muestra lo necesario tipo
+  inline*/
+	justify-items: start; /* done empieza un item  /  left  /  flex-start */
+	justify-items: end;
+	align-items: stretch; /* default. Trabaja en Y */
+	align-items: center;
+	align-items: start;
+	align-items: end;
+}
+.grid-align .item:nth-child(4) {
+	justify-self: start; /* así mismo en x */
+	align-self: center; /* así mismo en Y */
+}
