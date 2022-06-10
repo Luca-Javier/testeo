@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Layout Lineas</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      /* el que contiene todos mis elementos */
+      display: grid;
+      /* en desktop: 5 columnas , 4 rows
+      en mobile: 5 rows , 6 columnas.
+      La propuesta mobile en un momento tiene 3 items en una fila (3 columnas) y justo abajo
+      2 items en una fila. En la de arriba ponemos un item en cada celda pero abajo se nos complica,
+      entonces hacer 2x3(items) y tenemos 6 columnas.
+
+      DUDA: no podria simplemente deja runa vacía? sería una mala practica o es que simplemente una 
+      celda no puede no estar. tipo tiene tamaño minimo?
+       
+      RTA: lo que queria hacer es partir una celda en 2 dividir los espacio, pero esa celda no se 
+      puede partir. Si puedo ocultarla pero se ve el fondo*/
+      min-height: 100vh;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(5, auto);
+      /* porque el nav seria mas chiquito por EJ */
+    }
+
+    body>* {
+      background-color: #666;
+      border: medium solid #222;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    /* primero hacemos en mobile. Es mobile first */
+    .header {
+      /* grid-column: span 6; */
+      grid-area: span 1 / span 6;
+      /* span 1 no hace nada, pero lo hago explicito */
+    }
+
+    .footer {
+      /* grid-area: span 1 / span 6; */
+      /* esto sirve a la larga porque se empuja */
+      grid-area: 5 / 1 / 6 / 7;
+      /* esto sirve para ponerlo ya de una abajo, es como sacarse algo facil
+      y obvio desde el principio */
+    }
+
+    .nav {
+      /* grid-area: span 1 / span 6; */
+      grid-area: 2 / 1 / 3 / 7;
+    }
+
+    .uc-left {
+      /* grid-area: span 1 / span 2; */
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+
+    .uc-center {
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+
+    .uc-right {
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+
+    .middle {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    .lower {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+
+    @media screen and (min-width: 1024px) {
+
+      /* cuando sea posible que la condicion o sea la pantalla
+      sea mas grande de 1024px se cumplirta todo lo siguiente */
+      body {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, auto);
+      }
+
+      /* copio y pego nomas */
+
+      .header {
+        /* aca solo redusco el span 6 a 5 */
+        grid-area: span 1 / span 5;
+      }
+
+      .footer {
+        grid-area: 5 / 1 / 6 / 6;
+      }
+
+      .nav {
+        grid-area: 2 / 1 / 5 / 2;
+      }
+
+      .uc-left {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+      }
+
+      .uc-center {
+        grid-row: 2 / 3;
+        grid-column: 3 / 5;
+      }
+
+      .uc-right {
+        grid-row: 2 / 3;
+        grid-column: 5 / 6;
+      }
+
+      .middle {
+        grid-column: 2 / 6;
+        grid-row: 3 / 4;
+      }
+
+      .lower {
+        grid-column: 2 / 6;
+        grid-row: 4 / 5;
+      }
+
+      /* .tata {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+        display: none;
+      } */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- https://www.bing.com/images/search?q=holy+grauild+layaouts&form=HDRSC2&first=1&tsc=ImageHoverTitle -->
+  <!-- Si busco "holy grail layouts" tengo layouts de paginas  -->
+
+  <!-- modelo en <img src="layout lineas.jpg"> -->
+  <header class="header">
+    <h2>header</h2>
+  </header>
+  <nav class="nav">
+    <h2>Nav</h2>
+  </nav>
+  <article class="uc-left">
+    <h2>Upper Content Left</h2> <!-- upper  |  superior -->
+  </article>
+  <article class="uc-center">
+    <h2>Upper Content Center</h2>
+  </article>
+  <article class="uc-right">
+    <h2>Upper Content Right</h2>
+  </article>
+  <article class="middle">
+    <h2>Middle Content</h2>
+  </article>
+  <article class="lower">
+    <h2>Lower Content</h2>
+  </article>
+  <!--  <div class="tata"></div> -->
+  <footer class="footer">
+    <h2>Footer</h2>
+  </footer>
+</body>
+
+</html>

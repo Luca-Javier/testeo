@@ -59,11 +59,16 @@ img {
 	border: medium solid #000;
 }
 
-.item {
+.item,
+.grid-sub-item {
 	padding: 1rem;
 	font-size: 1.25rem;
 	background-color: #666;
 	border: medium solid #999;
+}
+.grid-sub-item {
+	border: medium solid #ccc;
+	background-color: #ddd;
 }
 .grid-explicit {
 	display: grid;
@@ -282,3 +287,107 @@ img {
 	justify-self: start; /* así mismo en x */
 	align-self: center; /* así mismo en Y */
 }
+.grid-align-tracks {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+	grid-template-rows: repeat(2, 200px);
+	justify-content: start; /* default */
+	justify-content: end; /* justtify-content alinea la grid, la cuadricula entera en eje x */
+	/* obvio solo funciona si no ocupamos todo el conteiner, osea no hay que usar fr */
+	justify-content: center;
+	justify-content: space-between;
+	justify-content: space-around;
+	justify-content: space-evenly;
+
+	align-content: start; /* default */
+	align-content: end;
+	align-content: center;
+	align-content: space-between;
+	align-content: space-around;
+	align-content: space-evenly;
+}
+.grid-min-max {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, minmax(100px, 200px));
+	/* minmax(min, max) */
+	grid-template-columns: repeat(4, minmax(min-content, 200px));
+	/* min content es el minimode espacio que se tiene y muestra todo el contenido.
+  el minimo sería de una palabra por renglon asi que me parece malardo. Considera el padding */
+	/* si tengo una columna con min-content y tengo una palabra re larga. la columna
+  de abajo va a heredar ese tamño, pero como tiene espacios en blancos. Si arriba tengo
+  griditem2 no se se separa y abajo tengo el msimo tamaño donde entra todo, pero como abajo
+  tengo grid item 5 con espacios el 5 se termina pasando */
+	grid-template-columns: repeat(4, minmax(100px, min-content));
+	grid-template-columns: repeat(4, minmax(100px, max-content));
+	/* max-content se ajusta a cuanto puede permitir en un parrafo sin alterar los otros items
+  y según cuanto entre en la pantalla */
+	grid-template-columns: repeat(4, minmax(max-content, 200px));
+	/* si pongo minimo maxcontent y tengo un texto re largo, me va a poner 
+  todo en un renglon y se escapa de la pantalla */
+	grid-template-columns: repeat(4, minmax(min-content, max-content));
+	/* es buena combinacion, el grid conteiner te queda re vacío */
+}
+.grid-repeat {
+	display: grid;
+	/* Grid 4cx4r */
+	grid-template-columns: repeat(4, 10% 20% 30% 40%);
+	/* repite 4 veces un patron de 4 columnas. Acordate que sin repeat no hace
+  falta poner cantidad, solo pones tamaño y ya es una columna */
+	grid-template-columns: repeat(1, 10% 20% 30% 40%);
+	grid-template-rows: repeat(2, 10vh 20vh);
+	grid-auto-rows: 250px; /* esto era el flujo de las rows, pero tiene priridad el template */
+	grid-auto-rows: repeat(2, 150px 200px); /* no funciona xd */
+}
+.grid-dynamics {
+	display: grid;
+	/* Grid 4cx?r */
+	grid-template-columns: repeat(4, 100px);
+	/* fill  |  relleno. auto-fill rellena la grid */
+	grid-template-columns: repeat(auto-fill, 100px);
+	/* en este caso rellena la grid de columnas de 100px */
+	/* fit  |  ajusta. auto-fit ajusta la grid a las celdas existentes */
+	grid-template-columns: repeat(auto-fit, 100px);
+	/* si me fijo en lña consola:
+  auto-fill: tengo celdas vacías
+  auto-fit: tengo las celdas justas que uso */
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	/* agarra el valor de 100px porque como hay celdas vacías, aunque no tengan nada tienen
+  un espacio quye ocupan y empujan a las demás */
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.grid-responsive {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	/* auto-fit hace que cuando pueda entrar una columna más, la agrega */
+	/* auto-fit está bueno pero auto-fill parece una cagada. O por ahí
+  en insta las celdas se ajustarían a celdas que aún no se generaron */
+}
+.grid-nested {
+	/* Grids anidados, o sea tener una grid y dentro un item que tmb es grid */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+}
+.subgrid {
+	/* para que esto funciones hay que seguir unos pasos:
+   1. Definir explicitamente el tamaño que ocupara el elemento dentro del contendor padre.
+   O sea hay que usar grid area, grid-column y row*/
+	grid-column: span 3;
+	grid-row: 1 / 3;
+	/* 2.Aplicar display grid */
+	display: grid;
+	/* 3.Aplicar le valor de subgrid a las columnas o las filas o a ambas */
+	grid-template-columns: subgrid;
+	grid-template-rows: subgrid;
+	/* con todo esto generamos tener una celda que tiene grid items pero que son iguales a la grid externa
+   o sea la celda nieta es igual a la celda hija del contenedor grid padre*/
+	/* O sea creo que sin esto no se puede tener grids dentro de grids */
+}
+article[style="background-color: navy;"] {
+	display: none;
+} /* estaba probando si se puede agregar un item y ocultarlo */
