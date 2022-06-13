@@ -1,0 +1,73 @@
+[class^="box"] {
+	/* los que empiezen con. Esto caclulo que sirve si vamos a usar muchos box
+  y vamos a ir direnciandolos tipo box-flex, box-grid-red */
+	margin: 3rem auto;
+	background-color: orangered;
+}
+/* Unidades fijas vs relativas */
+.box {
+	width: 300px;
+	height: 300px;
+}
+
+.box-flexible {
+	width: 50%;
+	height: 20%; /* para que esto ande el contenedor padre debe de tener una medida establecida y fija */
+	height: 20vh;
+}
+.box-flexible-2 {
+	max-width: 960px; /* es como que el max intenta tenerlo a toda costa, reuciendo el margin por EJ
+  mientas que con medidas relativas se ajustan a la pantalla y desde que la achico un poquito ya se achico
+  el conteiner. Con los max tengo que romper el limite o se quedan fijos */
+	min-width: 280px; /* si achico la pagina veo el efecto pero con height neceito tener contenido */
+	max-height: 480px;
+	min-height: 280px;
+	/* despues de agregarle 5 lorems el contenedor crecio del minimo a lo que necesito y ahora mientras
+  achico la pantalla en x las letras se van llendo para abajo y el height va creciendo */
+}
+.box-flexible-3 {
+	/* display: inline; */
+	height: 20vh; /* si solo pongo el height, mi caja ocupa el 100% default */
+	/* AHH: el valor default de width es auto. En verdad no es que ocupa el 100%.
+  Depende de si es inline o block. Si es block ocupa todo el width y si es inline depende del contenido */
+	/* practicamente hice una caja responsiva con un height nada mas xd */
+	/* min-height: ; */ /* adopta ese valor */
+	/* max-height: ; */ /*no tiene ningun valor, necesita, un minimo o una medida relativa  */
+	/* min-width: ; */ /*  */
+	/* min-width: 100px; */ /* no adopta el valor, necesita un maximo. Si es inline tampoco adopta el valor ya que no lo neceista si no tiene contenido */
+	/* max-width: 100px; */ /* adopta ese valor. Me acorde que a los inline no les afecta el width jaja */
+}
+.box-flexible-4 {
+	max-width: 960px;
+	min-width: 280px;
+	max-height: 480px;
+	min-height: 280px;
+	/* mayor jerarquía. Ni siquiera respetan el min que si generaria interferencia(por que es medida fija) */
+	width: 300px;
+	height: 300px;
+	/* a la caja le chupa un huevo los min y max */
+}
+.box-flexible-5 {
+	max-width: 960px;
+	min-width: 280px;
+	max-height: 480px;
+	min-height: 280px;
+	/* antes con unidades fijas y ahora con relativas */
+	width: 50%;
+	height: 20vh;
+	/* medio un mareo esto. Tipo pongo un max y un min, ya poner un witdh tmb es un lio. O puedo
+  tmb poner un width con un clamp. Creo que un clamp es esto xd, los 3 valores */
+	/* si pongo 2 cajas con width 50% pero una con minx-max. Se portan absolutamente igual
+  hasta que una llega a los limites */
+}
+/* para hacer responsive los archivos multimedia hacemos */
+img,
+audio,
+video,
+frame,
+canvas,
+svg,
+picture {
+	max-width: 100%;
+	height: auto; /* no se para que. no es default? */
+}
