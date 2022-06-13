@@ -64,10 +64,98 @@
 img,
 audio,
 video,
-frame,
+iframe,
 canvas,
 svg,
 picture {
 	max-width: 100%;
 	height: auto; /* no se para que. no es default? */
 }
+.responsive-media {
+	position: relative;
+	max-width: 100%;
+	height: 0;
+	/* Formato widescreen 16:9
+  16 --->100%
+  9 --->56.25% */
+	padding-bottom: 56.25%;
+}
+.responsive-media > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.aspect-radio-16-9 {
+	background-color: rebeccapurple;
+	aspect-ratio: 16 / 9;
+}
+.aspect-radio-1-1 {
+	aspect-ratio: 1/ 1; /*  es este caso el mapa era muy chiquito y lo hicimos cuadrado */
+}
+/* par no crar una hoja con media print */
+@media print {
+	@page {
+		/* landscape  |  apaisado */
+		size: A6 landscape; /* el A6 fue echo para que sea vertical */
+		size: A4 landscape;
+	}
+	body {
+		font-size: 48pt;
+		font-size: 16pt; /* las unidades de medida del word, los pt */
+		font-family: serif;
+		background-color: black; /* no cambia */
+		color: greenyellow;
+	}
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+	/* no-preference  =  default */
+	html {
+		/* scroll-behavior: auto; */
+	}
+}
+@media screen and (prefers-color-scheme: light) {
+	/* es la opcion del navegador de si preferis el navegador oscuro o blanco */
+	body {
+		background-color: lightblue;
+		background-color: white;
+	}
+}
+@media screen and (prefers-color-scheme: dark) {
+	/* como ya que está me cambie a dark, voy a poner white xd */
+	body {
+		background-color: black;
+		background-color: white;
+	}
+} /* como que esto de los prefers son configuraciones del usuario en el navegador, que prefiere */
+@media screen and (prefers-color-scheme: no-preference) {
+	/* es la opcion del navegador de si preferis el navegador oscuro o blanco */
+	body {
+		background-color: lightblue;
+		/* background-color: white; */
+	}
+}
+/* si trabajamos con min width es porque priorisamos el Mobile First porque min-width es lo minimo
+y significa que es del valor que damos hacia arriba */
+@media screen and (min-width: 480px) {
+	html {
+		background-color: lightpink;
+	}
+}
+/* Cuando usamos max es porque priorisamos Desktop First. El valor que le damos hacia abajo */
+@media screen and (max-width: 1024px) {
+	html {
+		background-color: lightgreen;
+	}
+} /* fuera de las condiciones. Esta tiene prioridad por cascada. Si las 2 se cumplen.
+SI usamos min y max vamos a tener estos problemas o sea que hay que hacer Desktop o Mobile first */
+@media screen and (min-width: 1200px) {
+	html {
+		background-color: white;
+	}
+}
+/* Breakpoints: es la medida de la media, como el punto donde la media de se rompe
+Es mala practica usar media queries con px, lo mejor es usar em porque el usuario puede configurar
+el tamaño de la letra que quiere en su navegador y en ese caso eso nos puede romper la pagina.
+Imaginate que tengo tod alineado justito y cae un chabon con 30px de font.size
+Pixeles de pantalla / pixeles que usamos = em 
+EJ: 1200px / 16px = 75em */

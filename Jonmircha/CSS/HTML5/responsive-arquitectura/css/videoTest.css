@@ -1,0 +1,75 @@
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: sans-serif;
+	line-height: 1.6;
+	scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+video {
+	max-width: 100%;
+	height: auto;
+}
+.div {
+	position: relative;
+	border: thin solid black;
+	max-width: 100%;
+	height: 0;
+	padding-bottom: 70.25%;
+	padding-bottom: 56.25%; /* el porcentaje según el width */
+	/* el div esta arriba dle contenido y el padding bottom hace de arriba para abajo */
+	/* este sería como el unico metodo de darle un height tipo semi fijo porque es
+  responsivo pero siempre mantiendo esa medida. O sea todo lo responsivo es eso xd
+  pero es la unica forma de darle ese tamño en especifico sin necesitar otro conteiner o 
+  guiarse por el body */
+}
+.div video {
+	width: 100%;
+	height: auto;
+	height: 300px;
+	height: 100%; /* el height sigue siendo 0 */
+	/* si un multimedia tiene tiene height auto y width 100%, Va a crecer infinito, pero al tener
+  una altura, como que limita al width sino el height se ajusta al width y queda re enorme */
+	position: absolute;
+}
+.div2 {
+	text-align: center;
+	margin-top: 20px;
+	height: 100px;
+	height: 0px; /* creo que un div es tipo un contenedor y todo lo que modifique adentro va a cambiar.
+  Pero el div como tal no tiene cuerpo, no es una caja, es un conjunto de items.
+  Banca. Sí tengo tamaños es una caja, pero automatica mente es un conjunto de items.
+  Caja: un cuadrado que almacena cosas adentro. La verdadera caja es una celda grid
+  Conjunto de items: un conjunto de items que tienen en comun que son hermanos, nada mas
+  
+  Si lo pensas bien un div cuando tiene mas contenido del que puede almacenar se desborda,
+  o sea que el espacio que le dimos es solo una decoracion en un conjunto de items (si le dimos un bg-color digo)
+  . Pero una celda grid, cuando tiene mucho contenido se vuelve mas grande o se sobrepone*/
+	border: thin solid black;
+}
+.div2 > * {
+	border: thin solid black;
+	color: red;
+}
+.myVideoTest {
+	width: 100%;
+	max-width: 1200px;
+	aspect-ratio: 16 / 9;
+}
+.myVideoConteiner {
+	margin: 0 auto;
+	max-width: 80%;
+	border: thin solid black;
+}
+.myVideoTest2 {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	/* aspect-ratio: 16 / 9; */
+	display: block;
+} /*Me parece que el aspect ratio nunca anduvo xd */

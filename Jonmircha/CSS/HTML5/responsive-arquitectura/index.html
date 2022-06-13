@@ -7,6 +7,7 @@
   <title>Curso Responsive Design y Arquitectura CSS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
   <link rel="stylesheet" href="css/init.css">
+  <link rel="stylesheet" media="print" href="css/print.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -167,14 +168,55 @@
       <!-- dio el ejemplo de que si estas en celu verías un logo nomas, pero en compu verías logo y nombre de la marca -->
       <picture>
         <source srcset="img/kitten-large.png" media="(min-width: 1200px)">
+        <!-- es buena practica hacer de mas grande a mas chiquito -->
         <!-- practicamente tengo if, else if, else -->
         <source srcset="img/kitten-medium.png" media="(min-width: 600px)">
         <img src="img/kitten-small.png" alt="">
         <!-- este si anda. está buenisimo xd. Puedo hacer esto con las imagenes normales no?. NO, no se puede porque
         picture es un contenedor donde almacena todo esto, tipo una clase y sus metodos. Para usarlo en img´s tengo que usar los atributos que no andan -->
       </picture>
+      <br>
+      <picture>
+        <!-- webp es un formate mas pesado pero se ve mejor. lo que hacemos aca en vez de uar media es usar
+        type y le decimos "cuando el navegdor soporte esta imagen, usarla, sino la original(jpg)" -->
+        <source srcset="img/butterfly.webp" type="image/webp">
+        <img src="img/butterfly.jpg" alt="Mariposa">
+      </picture>
       <h3>Videos Responsivos</h3>
+      <video src="assets/kenai.mp4" controls></video>
+      <div class="responsive-media">
+        <video src="assets/kenai.mp4" controls></video>
+      </div>
+      <video class="aspect-radio-16-9" src="assets/kenai.mp4" controls></video>
+      <div class="aspect-radio-16-9"></div>
       <h3>Iframes Responsivos </h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/udGrXWeJp1Y?start=6639"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      <br>
+      <div class="responsive-media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/udGrXWeJp1Y?start=6639"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <iframe class="aspect-radio-16-9" width="560" height="315"
+        src="https://www.youtube.com/embed/udGrXWeJp1Y?start=6639" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13134.549741179839!2d-58.44149650723877!3d-34.61332856999766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca688994eb61%3A0xd055df0a7dafa86e!2sParque%20Centenario!5e0!3m2!1ses!2sar!4v1655128890512!5m2!1ses!2sar"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <br>
+      <iframe class="aspect-radio-1-1"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13134.549741179839!2d-58.44149650723877!3d-34.61332856999766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca688994eb61%3A0xd055df0a7dafa86e!2sParque%20Centenario!5e0!3m2!1ses!2sar!4v1655128890512!5m2!1ses!2sar"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      <p><a href="videoTest.html">Acá</a>
+        pelotudeo un poco y llego a la manera que usaría, pero tengo que estudiar todavia que tamaños usar de imagenes
+        y por que</p>
     </article>
     <hr>
     <article id="media-queries" class="full-screen">
@@ -185,7 +227,7 @@
         tenido cierto grado de capacidad para el reconocimiento de dispositivos mediante el uso de tipos de medios. Por
         ejemplo:
       </p>
-      <pre><code class="language-html">&lt;link rel="stylesheet" href="print.css" media="print"&gt;</code></pre>
+      <pre><code class="language-html">&lt;link rel="stylesheet" media="print" href="print.css"&gt;</code></pre>
       <p>
         Con <i>CSS3</i>, la <i>W3C</i> perfeccionó y mejoró los tipos de medios con características multimedia y con la
         capacidad de

@@ -1,0 +1,11 @@
+@page {
+	/* size: A3; */ /* re chiquito todo */
+	size: A4;
+}
+body {
+	font-size: 48pt;
+	font-size: 12pt; /* las unidades de medida del word, los pt */
+	font-family: serif;
+	background-color: black; /* no cambia */
+	color: white;
+}
