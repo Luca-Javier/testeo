@@ -3,11 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=.25">
+  <!-- viewport: zona visible de la pagina. Yo puedo abrir la consola tmb en el navegador, pero yo solo veo
+  mi pagina en el viewport. En esta etiqueta tratamaos el viewport Mobile
+En el content le decimos que el ancho del html se va a adapatar al ancho del dispositivo y la
+escala inicial es 1 -->
+  <!-- John dijo que nunca uso las propiedades que no sean esas 2 de siempre -->
   <title>Curso Responsive Design y Arquitectura CSS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
   <link rel="stylesheet" href="css/init.css">
   <link rel="stylesheet" media="print" href="css/print.css">
+  <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -503,6 +509,8 @@
       <p>1200px / 16px = 75em</p>
     </article>
     <hr>
+    <!-- <div class="div" style="background-color: black; height:100vh; "></div> -->
+    <!-- cuadra perfecto en mobile sin haber usado height en en la meta etiqueta -->
     <article id="viewport" class="full-screen">
       <h2><i>Viewport</i></h2>
       <p>
@@ -574,6 +582,27 @@
     <hr>
     <article id="responsive-grid" class="full-screen">
       <h2><i>Responsive Grid</i></h2>
+      <section class="row">
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 1</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 2</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 3</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 4</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 5</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 6</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 7</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 8</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 9</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 10</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 11</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 12</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 13</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 14</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 15</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 16</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 17</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 18</article>
+        <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 19</article>
+      </section>
     </article>
     <hr>
     <article id="feature-queries" class="full-screen">

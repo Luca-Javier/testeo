@@ -1,0 +1,249 @@
+/* 
+Las grids suelesn ser de 12 columnas porque son muy divisibles
+12/1(elemento que quiero en la fila) = 12 (el area que le doy a cada item)
+12/2 = 6
+12/3 = 4
+12/4 = 3
+12/6 / 2
+12/12 = 1 
+
+12 --> 100%
+num_col ---> x%
+
+Grid System Artesanal con Flexbox a 12 columnas (sin usar grid)
+Tamaños (Mediaqueries)
+  xs    - extrasmall   - 0                -  479px     -   480res
+  sm   -  small        - 480px (30em)     -  767px     -   800res
+  md  -   medium       - 768px (48em)     -  991px     -   1024res
+  lg    - large        - 992px (62em)     -  1199px   -    1280res
+  xl    - extralarge   -+1200px (75em)   -                >1281res
+*/
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+.row {
+	display: flex;
+	flex-flow: wrap;
+}
+.col-1 {
+	/* si quiero que un elemento represente 1 espacio */
+	/* 100*1/12 */
+	width: 8, 3333333333333333333333333333333%;
+}
+.col-2 {
+	/* 100*2/12 */
+	width: 16, 666666666666666666666666666667%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 33, 333333333333333333333333333333%;
+}
+.col-5 {
+	width: 41, 666666666666666666666666666667%;
+}
+.col-6 {
+	width: 50%;
+}
+.col-7 {
+	width: 58, 333333333333333333333333333333%;
+}
+.col-8 {
+	width: 66, 666666666666666666666666666667%;
+}
+.col-9 {
+	width: 75%;
+}
+.col-10 {
+	width: 83, 333333333333333333333333333333%;
+}
+.col-11 {
+	width: 91, 666666666666666666666666666667%;
+}
+.col-12 {
+	width: 100%;
+} /* todos estos serían extrasmall */
+/* patron 3333333, 666666, 25 */
+@media screen and (min-width: 30em) {
+	/* small */
+	.col-sm-1 {
+		/* si quiero que un elemento represente 1 espacio */
+		/* 100*1/12 */
+		width: 8, 33333333333333%;
+	}
+	.col-sm-2 {
+		/* 100*2/12 */
+		width: 16, 66666666666666%;
+	}
+	.col-sm-3 {
+		width: 25%;
+	}
+	.col-sm-4 {
+		width: 33, 3333333333333333%;
+	}
+	.col-sm-5 {
+		width: 41, 66666666666666666%;
+	}
+	.col-sm-6 {
+		width: 50%;
+	}
+	.col-sm-7 {
+		width: 58, 3333333333333333%;
+	}
+	.col-sm-8 {
+		width: 66, 66666666666666%;
+	}
+	.col-sm--9 {
+		width: 75%;
+	}
+	.col-sm-10 {
+		width: 83, 3333333333%;
+	}
+	.col-sm-11 {
+		width: 91, 666666666666%;
+	}
+	.col-sm-12 {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 48em) {
+	/* small */
+	.col-md-1 {
+		/* si quiero que un elemento represente 1 espacio */
+		/* 100*1/12 */
+		width: 8, 3333333333333333333%;
+	}
+	.col-md-2 {
+		/* 100*2/12 */
+		width: 16, 6666666666666666666%;
+	}
+	.col-md-3 {
+		width: 25%;
+	}
+	.col-md-4 {
+		width: 33, 33333333333333333%;
+	}
+	.col-md-5 {
+		width: 41, 6666666666666666%;
+	}
+	.col-md-6 {
+		width: 50%;
+	}
+	.col-md-7 {
+		width: 58, 3333333333333%;
+	}
+	.col-md-8 {
+		width: 66, 666666666666666%;
+	}
+	.col-md-9 {
+		width: 75%;
+	}
+	.col-md-10 {
+		width: 83, 333333333333333%;
+	}
+	.col-md-11 {
+		width: 91, 6666666666666666666%;
+	}
+	.col-md-12 {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 62em) {
+	/* small */
+	.col-l-1 {
+		/* si quiero que un elemento represente 1 espacio */
+		/* 100*1/12 */
+		width: 8, 3333333333%;
+	}
+	.col-l-2 {
+		/* 100*2/12 */
+		width: 16, 6666666666666666%;
+	}
+	.col-l-3 {
+		width: 25%;
+	}
+	.col-l-4 {
+		width: 33, 333333333333333%;
+	}
+	.col-l-5 {
+		width: 41, 66666666666667%;
+	}
+	.col-l-6 {
+		width: 50%;
+	}
+	.col-l-7 {
+		width: 58, 333333333%;
+	}
+	.col-l-8 {
+		width: 66, 666666666666%;
+	}
+	.col-l-9 {
+		width: 75%;
+	}
+	.col-l-10 {
+		width: 83, 33333333333333%;
+	}
+	.col-l-11 {
+		width: 91, 6666666666666666%;
+	}
+	.col-l-12 {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 75em) {
+	/* small */
+	.col-xl-1 {
+		/* si quiero que un elemento represente 1 espacio */
+		/* 100*1/12 */
+		width: 8, 33333333333333333%;
+	}
+	.col-xl-2 {
+		/* 100*2/12 */
+		width: 16, 666666666666666666%;
+	}
+	.col-xl-3 {
+		width: 25%;
+	}
+	.col-xl-4 {
+		width: 33, 333333333333333%;
+	}
+	.col-xl-5 {
+		width: 41, 666666666666666%;
+	}
+	.col-xl-6 {
+		width: 50%;
+	}
+	.col-xl-7 {
+		width: 58, 3333333333333%;
+	}
+	.col-xl-8 {
+		width: 66, 66666666666666%;
+	}
+	.col-xl-9 {
+		width: 75%;
+	}
+	.col-xl-10 {
+		width: 83, 3333333333333%;
+	}
+	.col-xl-11 {
+		width: 91, 6666666666666%;
+	}
+	.col-xl-12 {
+		width: 100%;
+	}
+}
+/* Si tengo las valores con muchos numeros tipo:
+8,333333333333333333333333333333333333333333333333333333333333333
+da error pero no avisa, asi que no hay que poner tanto */
+.row > [class^="col"] {
+	border: thin solid gray;
+	padding: 1rem;
+}
