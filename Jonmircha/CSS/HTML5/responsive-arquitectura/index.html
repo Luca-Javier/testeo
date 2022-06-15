@@ -603,6 +603,7 @@ escala inicial es 1 -->
         <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 18</article>
         <article class="col-12 col-sm-6 col-md-4 col-l-3 col-xl-2">Elemento 19</article>
       </section>
+      <!-- no puedo hacer esto con grid y ya esta? -->
     </article>
     <hr>
     <article id="feature-queries" class="full-screen">
@@ -638,7 +639,7 @@ escala inicial es 1 -->
       <h3>Sintaxis</h3>
       <pre><code class="language-css">
 .card {
-  contain: layout inline-size;
+  contain: layout inline-size style;
 }
 
 @container (min-width: 600px) {
@@ -648,7 +649,20 @@ escala inicial es 1 -->
 }
       </code></pre>
       <h3>Ejemplo</h3>
-      <aside></aside>
+      <p class="sup-test">Support test: </p>
+      <aside>
+        <article class="card">
+          <div class="card-conteiner">
+            <img class="card-image" src="img/puesta-sol.jpg" alt="Puesta de sol">
+            <aside class="card-content">
+              <h4 class="card-title">Card Title</h4>
+              <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates omnis quia
+                incidunt unde dicta iusto dolore voluptatem aspernatur alias illum repellendus placeat aliquam ex
+                necessitatibus, aliquid voluptatum dolor! Labore, animi?</p>
+            </aside>
+          </div>
+        </article>
+      </aside>
     </article>
     <hr>
     <article id="seo" class="full-screen">

@@ -110,7 +110,7 @@ picture {
 @media screen and (prefers-reduced-motion: no-preference) {
 	/* no-preference  =  default */
 	html {
-		/* scroll-behavior: auto; */
+		scroll-behavior: auto;
 	}
 }
 @media screen and (prefers-color-scheme: light) {
@@ -159,3 +159,75 @@ el tamaño de la letra que quiere en su navegador y en ese caso eso nos puede ro
 Imaginate que tengo tod alineado justito y cae un chabon con 30px de font.size
 Pixeles de pantalla / pixeles que usamos = em 
 EJ: 1200px / 16px = 75em */
+
+/* acá vimos el archivo de grid.css */
+
+@supports (grid-template-columns: subgrid) {
+	/* Si el navegador lo soporta lo ejecuta, sino no. Justo esta solo la soporta el firefox */
+	html {
+		background-color: black;
+		color: brown; /* en firefox si cambia*/
+	}
+}
+@supports not (grid-template-columns: subgrid) {
+	/* si NO lo soporta */
+	html {
+		background-color: crimson;
+		color: burlywood;
+	}
+} /* estos 2 sirven una banda para fijarse si anda o no */
+@supports (display: grid) and (grid-template-columns: subgrid) {
+	/* 2 condiciones */
+	html {
+		background-color: antiquewhite;
+		color: green;
+	}
+}
+@supports (display: grid) or (grid-template-columns: subgrid) {
+	/* uno de los 2 */
+	html {
+		background-color: darkslateblue;
+		color: black;
+	}
+}
+/* si vas a tu navegador podes ir a edge://flags/  esto esta en todos los navegadores y podemos activar opciones experimentales */
+.card {
+	border: thin solid black;
+	margin: auto;
+	max-width: 800px;
+	contain: layout inline-size style;
+}
+.card-image {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: 0 50%;
+}
+.card-content {
+	padding: 1rem;
+}
+.sup-test {
+	display: none;
+}
+@supports not (contain: layout inline-size style) {
+	/* acá está bueno porque aviso que no soporta pero si soporta no se ve. O sea si uso esta propiedad
+  que solo la soporta un navegador y activando los flags, no me combiene. Pero si me anda en todos menos en 1
+  ahi si que lo puedo usar */
+	.sup-test {
+		display: initial;
+	}
+	.sup-test::after {
+		content: "no soporta";
+		color: red;
+		display: initial;
+	}
+}
+@container (min-width: 600px) {
+	.card-conteiner {
+		display: flex;
+	}
+	.card-conteiner > * {
+		width: 50%;
+		flex-basis: 50%;
+	}
+} /* no anda */
