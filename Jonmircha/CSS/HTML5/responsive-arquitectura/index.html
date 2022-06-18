@@ -45,12 +45,23 @@ escala inicial es 1 -->
               mobiles)</li>
             <li>
               <h3>Estrategias de Diseño Multidispositivos</h3>
+              <p>5 estrategias que diferentes que al final son o tratan de lo mismo</p>
               <ul>
-                <li><a href="#desktop-mobile"><i>Responsive Design: Desktop First VS Mobile First</i></a></li>
-                <li><a href="#adaptive-design"><i>Adaptive Design</i></a></li>
-                <li><a href="#ress"><i>Responsive Design + Server Side Components (RESS)</i></a></li>
-                <li><a href="#responsible-design"><i>Responsible Responsive Design</i></a></li>
-                <li><a href="#fluid-design"><i>Fluid Design</i></a></li>
+                <li><a href="#desktop-mobile"><i>Responsive Design: Desktop First VS Mobile First</i></a> (Mobile first
+                  es superior)</li>
+                <li><a href="#adaptive-design"><i>Adaptive Design</i></a> (Variar el dominio al consultar el hardware
+                  del dispositivo con JS)</li>
+                <li><a href="#ress"><i>Responsive Design + Server Side Components (RESS)</i></a>(Lo mismo que el
+                  adaptative pero en vez de en el front con JS, en el backend)</li>
+                <li>Estos ultimos 2 pueden usarse sin queries. EJ: entro en compu y me manda un dominio para compu, ya
+                  sea con Adaptive o RESS(son lo mismo, solo cambia la tecnica) o entro en celu y me manda un dominio de
+                  celu. Pero si entro en compu y abro la consola, al no neceitar queries la pagina no se va a adapatar
+                  (si no tiene queries)</li>
+                <li><a href="#responsible-design"><i>Responsible Responsive Design</i></a>(EJ: entro con en mi celu con
+                  mis datos y al detectar mi conexion o que tengo poca velocidad, si EJ: tengo un video de youtube, lo
+                  cambio por un link, entonces me ahorro tener que descargarlo de la nube y no hago responsable a mi
+                  pagina de tu mal interner, cualquier cosa ya youtube te tardará a vos)</li>
+                <li><a href="#fluid-design"><i>Fluid Design</i></a>(Un contenido fluido con medidas relativas)</li>
               </ul>
             </li>
           </ul>
@@ -62,7 +73,48 @@ escala inicial es 1 -->
           </ul>
         </li>
       </ol>
-      <a class="top-btn" href="#top">
+      <h2>Apuntes</h2>
+      <p>Una arqitecutra CSS tiene 4 caracteristicas:
+      <ol>
+        <li>Predecible: si creo una clase que se llama "btn-color-red" con solo leerlo debo de entender que va a hacer y
+          no debe hacer nada mas que no entienda con el nombre. Imaginate que le pone un border radius. Nada que verdad
+        </li>
+        <li>
+          <b>Reutilizable:</b> Si uso mi clase "btn-color-red" no debe importar el tipo de input, sea submit, boton o un
+          div.
+          Se debe de poder ajustar todo para poder reutilizarlo en diferentes elementos y no crear otros. También EJ:
+          quiero tuner mi boton y en vez de crear una clase para ese boton, creo muchas clases y se las pongo al boton,
+          entonces luego puedo reutilizar esos pedazos y crear otros pedazos nuevos, pero nunca crear todo de nuevo para
+          cada boton
+        </li>
+        <li>
+          Estable: tiene un poco que ver con dividir un estilo en varias clases y que estas no se soprepongan por
+          cascada EJ: tengo una clase con una bg-image y le pongo unos tamaños basicos, luego tengo otra clase con
+          tamaños nuevos pero sin la imagen, solo tamaños. Imaginate que por cascada tengo los tamaños nuevos y luego la
+          imagen, cuando ponga los 2 en un elementos, la primera clase se sobreescribe y no anda
+        </li>
+        <li>
+          Escalable: Manteniendo el control de los anteriores puntos. Un CSS escalable es como un diccinario al cual lo
+          podemos actualizar y agregarle palabras, tiene su organizacion, la puede seguir siempre y intituivo
+        </li>
+        <br>
+        <p>
+          Siguiendo estos pasos, puedo crear mi hoja de estilos como si fuera mi bootstrap esalable (le puedo agregar
+          mas), reutilizable(intuitivo(predecible) y para diferentes elementos),estable(evitndo sobreescribir datos por
+          cascada).
+          De echo es necesario crear <b>nuestra hoja de estilo o usar un framework</b> porque al empezar siempre un
+          proyecto perderíamos mucho tiempo
+          Un frameWork o nuestra hoja de estilos tendría muchas clases que conformarian componentes como logo, nav,
+          search, header
+        </p>
+        <p> <a href="https://2021.stateofcss.com/en-US/other-tools">Esta</a> página nos dice el estado de CSS que se
+          saca de muchas encuestas, acá podemos ver metodologias, extensiones y todo lo que mas se usa en CSS, epico
+        </p>
+
+
+      </ol>
+      </p>
+      <a class=" top-btn" href="#top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
           <path
@@ -778,11 +830,16 @@ escala inicial es 1 -->
           <p>Se utiliza la propiedad <b><i>min-width</i></b> para definir las <i>mediaqueries</i>.</p>
           <img class="w-75" src="https://jonmircha.com/img/blog/mobile-first.jpg" alt="Mobile First">
         </article>
+        <p>John dice que es mejor el mobile first porque SIEMPRE en la programación en general es mas facil ir agregando
+          cosas que ir sacando. Esta tecnica se usaba solo al principio del responsive porque todoas las paginas ya
+          estaban para desktop pero combiene hacerlas Mobile first</p>
       </section>
     </article>
     <hr>
     <article id="adaptive-design" class="full-screen">
       <h2><i>Adaptive Design</i></h2>
+      <p>En las diapositivas en una se ve que tenemos que adaptar una pagina no solo para mobiles, si no para hardware,
+        conexiones, sensores, discapacidades, etc. Y de esto se trata el tema</p>
       <p>
         El <i>Adaptive Design</i>, trata de crear interfaces que se adapten a las capacidades y características de cada
         dispositivo (<i>Hardware</i> y <i>Software</i>).
@@ -799,6 +856,7 @@ escala inicial es 1 -->
         <li><a href="https://facebook.com/" target="_blank"><i>Facebook Desktop</i></a></li>
         <li><a href="https://m.facebook.com/" target="_blank"><i>Facebook Mobile</i></a></li>
       </ul>
+      <p>Fijate como la url de facebook mobile es m.facebook</p>
       <p>
         Fue propuesto por <a href="https://www.aaron-gustafson.com/" target="_blank"><i>Aaron Gustafson</i></a> en 2011.
       </p>
@@ -903,6 +961,9 @@ escala inicial es 1 -->
         Fue propuesto por <a href="https://www.trysmudford.com/" target="_blank"><i>Trys Mudford</i></a> en 2020.
       </p>
       <h3>Más información</h3>
+      <p>Está bueno, hay guías y tips y me parece que es la mejor estrategia, o la que no necesita ni queries ni otros
+        lenguajes. En <a href="https://jonhmircha.com">La pagina</a> de John podemos ver como el <b>texto</b> es fluido
+        y va cambiando el size</p>
       <ul>
         <li><a href="https://utopia.fyi/" target="_blank"><i>Utopia. Fluid Responsive Design</i></a></li>
         <li><a href="https://utopia.fyi/blog" target="_blank"><i>Utopia Blog</i></a></li>
@@ -915,8 +976,54 @@ escala inicial es 1 -->
       <aside>
         <h3>Ejemplos <i>Fluid Design</i></h3>
         <h4><i>Grid</i> Fluida</h4>
+        <p>El display y una linea de codigo, nada mas
+        </p>
+        <section class="fluid-grid">
+          <article class="fluid-item">Item 1</article>
+          <article class="fluid-item">Item 2</article>
+          <article class="fluid-item">Item 3</article>
+          <article class="fluid-item">Item 4</article>
+          <article class="fluid-item">Item 5</article>
+          <article class="fluid-item">Item 6</article>
+          <article class="fluid-item">Item 7</article>
+          <article class="fluid-item">Item 8</article>
+          <article class="fluid-item">Item 9</article>
+          <article class="fluid-item">Item 10</article>
+          <article class="fluid-item">Item 11</article>
+          <article class="fluid-item">Item 12</article>
+          <article class="fluid-item">Item 13</article>
+          <article class="fluid-item">Item 14</article>
+          <article class="fluid-item">Item 15</article>
+          <article class="fluid-item">Item 16</article>
+          <article class="fluid-item">Item 17</article>
+          <article class="fluid-item">Item 18</article>
+          <article class="fluid-item">Item 19</article>
+        </section>
         <h4>Textos Fluidos</h4>
+        <div class="comparasion">
+          <div class="comparasion-cont-1">
+            <p class="step--2">Step -2</p>
+            <p class="step--1">Step -1</p>
+            <p class="step-0">Step 0</p>
+            <p class="step-1">Step 1</p>
+            <p class="step-2">Step 2</p>
+            <p class="step-3">Step 3</p>
+            <p class="step-4">Step 4</p>
+            <p class="step-5">Step 5</p>
+          </div>
+          <div class="comparasion-cont-2">
+            <p class="comparasion-1">Step -2</p>
+            <p class="comparasion-2">Step -1</p>
+            <p class="comparasion-3">Step 0</p>
+            <p class="comparasion-4">Step 1</p>
+            <p class="comparasion-5">Step 2</p>
+            <p class="comparasion-6">Step 3</p>
+            <p class="comparasion-7">Step 4</p>
+            <p class="comparasion-8">Step 5</p>
+          </div>
+        </div>
         <h4>Contenedores Fluidos</h4>
+        <div class="box-fluid"></div>
       </aside>
     </article>
   </main>
