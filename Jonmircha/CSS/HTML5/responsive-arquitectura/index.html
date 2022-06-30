@@ -74,7 +74,7 @@ escala inicial es 1 -->
         </li>
       </ol>
       <h2>Apuntes</h2>
-      <p>Una arqitecutra CSS tiene 4 caracteristicas:
+      <h4>Una arqitecutra CSS tiene 4 caracteristicas:</h4>
       <ol>
         <li>Predecible: si creo una clase que se llama "btn-color-red" con solo leerlo debo de entender que va a hacer y
           no debe hacer nada mas que no entienda con el nombre. Imaginate que le pone un border radius. Nada que verdad
@@ -110,10 +110,115 @@ escala inicial es 1 -->
         <p> <a href="https://2021.stateofcss.com/en-US/other-tools">Esta</a> página nos dice el estado de CSS que se
           saca de muchas encuestas, acá podemos ver metodologias, extensiones y todo lo que mas se usa en CSS, epico
         </p>
-
-
+        <h4>Metodologias CSS</h4>
+        es el metodo que tenemos que ordenar las clases para que sean predecibles
+        <ul>
+          <li>BEM: es la mas conocida y usada EJ: uso palabras claves, no el nombre de los elementos como nav, pongo
+            searh, o como red-text, pongo error. Y cuando tengo nav input button pongo search, search_input,
+            search_button. <b>ACTU:</b> BEM es Bloque, Elemento, Modificador
+            <ul>
+              <li>Bloque:un div contenedor</li>
+              <li>Elemento: lo que está dentro del bloque EJ: un input, un boton</li>
+              <li>Modificadores: las modificaciones/estilos que aplicamos</li>
+              Lo malo de BEM es para los modificadores usa "search__button_disabled" y es solo el modificador, o sea una
+              clase tendria:
+            </ul>
+            <pre><code>
+&lt;nav class="search"&gt; &lt;!-- los "__" marcan los elementos contenidos en un bloque --&gt;
+  &lt;button class="button search__button search_button_disabled"&gt;
+              </pre></code>
+          </li>
+          <li>SMACSS: es complicado, se divide en 5 capas:
+            <ol>
+              <li>Base: es como un normalize, pone los valores de base</li>
+              <li>Layout: crea el layaut por EJ: con grid</li>
+              <li>Modulos: son los elementos de BEM</li>
+              <li>Estado: son las peudoclases tipo hover</li>
+              <li>Temas: serían los estilos css orientados a crear temas para que nuestro sitio los siga</li>
+            </ol>
+          </li>
+          <li>OOCSS: CSS orientado a objetos, como un bloque de BEM</li>
+          <li>ITCSS: se parece a SMACSS pero implementa utilidades EJ: una clase para solo modificar un atributo como
+            center</li>
+          <li>SUITCSS: es como BEM pero en vez de bloques y elementos solo tenemos componentes e implementa las clases
+            utilitarias. Para las clases utilitarias usa primero un "u-" EJ: "u-center". <b>Esta está buena</b></li>
+        </ul>
       </ol>
+      <p>Conclusion: todas las metodologias van a los mimso que sería cumplir las 4 caracteristicas y algunas
+        metodologias atomizando mas o menos. La que mas me gustó fue SUITCSS</p>
+      <h4>Frameworks</h4>
+      <p>Describiría un framework como un ambiente de trabajo</p>
+      <ul>
+        <li>Pure CSS: es tipo SMACSS. En la pagina tiene para descargar la base, elementos, layout
+        </li>
+        <li>MUI: tiene plantillas o elementos, no se, para diferentes lenguajes, como js, react, css. Y algo que es un
+          detalle importante que tmb tiene BS, es que tiene utilidades responsivas EJ: una padding smal, xl, lg</li>
+        <li>Semantic UI: tiene muchas plantillas y usa mas elementos HTML como un section ponele. No abusa tanto de los
+          div como BS. Tambien intenta innovar/tener un diseño diferente</li>
+        <li>Bulma: tiene nombres de clases muy simples e intuitivos. En vez de col tiene column. Tambien con una
+          plantilla que lo necesita, viene con el codigo js único para esa plantilla</li>
+        <li>UI kit: tiene algo que <b>me encanta</b> y es que cada clase empieza con "ui-" o sea que facilmente puede
+          dividir
+          mis clases de las del framework</li>
+        <li>Foundation: es de los top conocidos, tiene muy buenas practicas y tiene HTML para emails. Cada seccion de
+          foundation tiene videos explicando, muy bien documentado si aprendes mas con videos </li>
+        <li>Bootstrap: simplemente es el rey y tiene de todo</li>
+      </ul>
+      <p>Conclusion: está muy bueno usar frameworks, verdaderamente no usarlos es querer aumentar tu ego porque llevaría
+        mucho tiempo tener una hoja propia que esté decente. Si es verdad que hacer un proyecto con solo css estaría
+        bueno para "repasar", hablando de hacerlo de vez en cuando. Calculo que 1 con puro css hay que hacer en la vida.
+        John dice que su cvc esta echo con puro CSS porque es su naturalidad, pero llego a la conclusion que vale mas la
+        pena ser mas ágil usando un framework y aprendiendo a usarlo. Tambien acoto que cuando busco EJ: una nav, puedo
+        ir tanto a bootstrap como a otros frameworks y ver diferentes estilos. De echo John recomienda no casarse con
+        solo 1 framework
       </p>
+      <h4>Procesadores CSS</h4>
+      <h3>Pre Procesadores</h3>
+      <p>Son herramientas que tienen un lenguaje, una estructura y al momento de procesador la pagina, este codigo se
+        transforma en css normal. Están buenas, imaginate hacer un framework y tener que hacer una clase para cada
+        width: w-1% - w-100%. Tengo que hacer 100 clases, pero con un pre procesador que implemente algo como un for, lo
+        puede hacer automatico y luego lo transforma a css. John dice que el mejor es SASS
+        (es scss, super css, de echo primero fue sass y ahora scss)</p>
+      <h3>Post Procesadores</h3>
+      <p>DATO: mixins: Son una funcion en la que un codigo css se le agarrar y se le eliminan todos los espacios en
+        blanco, por lo tanto queda horrible e inentendible, pero esto solo lo ve así el cliente si va a la consola. Con
+        esto ganamos procesamiento y calculo que se hace con codigos de cualquier lenguaje</p>
+      <p>Los post procesadores son herramientas que procesan el CSS, lo optimizan y automatizan. EJ: un mixing. Yo con
+        un pre-pro. hago un codigo mas simple y lo convierto
+        a css y el post-pro. ordeno el css <b>ya transformado</b> y le hago el mixing. Tambien les puede poner los web
+        kit automaticamante a todas las lineas.John dice que el mejor es <b>Post CSS</b>
+      </p>
+      <p>Conclusion: por lo que escuche yo eligo Sass y Post CSS, pero en ambos se usa la terminal y JS asi que como
+        pinta complejo, John nos recomienda esperar</p>
+      <h3>Herramientas de Automatización</h3>
+      <p>Otra opcione para los procesadores son las herreamientas EJ: hay herramientas online que ofrecen un
+        mixin(minifier), auto prefixer</p>
+      <h3>Guías de estilos</h3>
+      <p>es como una guía, una forma de hacer toda la Arquitectura, organizar el codigo css, js, html. Es como un
+        conjunto de buenas practicas pero especificas que cada una se apoyan entre si. Es el estilo de cada uno al
+        codear, pero hay empresas que tienen su propio estilo y uno se tiene que adaptar EJ: el orden de declaracion,
+        priemro tamaños, luego posicionamiento,luego estilos. El favorito de Jhon es <b><a
+            href="https://codeguide.co/">codeguide</a></b>. De escho esto nos lo recomendo desde el curso de HTML</p>
+      <h2>Que usar???</h2>
+      <p>tipo conclusion final, John recomienda que primero hay tener buenas bases, a cabo que si estudiamos un
+        framework y otro dia sale uno mejor, es medio al pedo. Pero las tecnologias bases nunca van a desaparecer. Ahora
+        sobre que usar, depende de que tanto quiera dedicarme al frontend o desarrollo web y justo frontend. Obviamente
+        me sirve tener alguna tecnologia conocida, recomendada. Pero lo ideal seria probar varias decidir, pero para
+        esto hay que hacer varios proyectos y si no vamos a ser expertos en frontend nunca las vamos a probar. Aparte
+        imaginate entrar a una empresa, me tengo que ajustar a lo que usen</p>
+      <p>Lo que mas me gusto de las 4 cosas</p>
+      <ul>
+        <li>Metodologias: la que mas me llamo la atencion es <b>SUITCSS</b>, pero <b>probar BEM</b> sería cheto ya que
+          es la
+          mas usada
+        </li>
+        <li>Frameworks: lo mismo, me gustó <b>UI kit</b> pero probar mas bootstrap estaría piola y en general saber el
+          estilo
+          que tiene cada 1 para saber donde buscar un tipo de elemento</li>
+        <li>Pre-Procesadores: SASS</li>
+        <li>Post-Procesadores: Post CSS (o herramientas online)</li>
+        <li>Guias de estilo: <a href="https://codeguide.co/">codeguide</a></li>
+      </ul>
       <a class=" top-btn" href="#top">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
