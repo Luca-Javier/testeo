@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>190</y><w>230</w><h>190</h></coordinates><panel_attributes>CuentaBancaria (class name)
+--
+(atributos)
+-CBU: String
+-alias: String
+-saldo: double
+-moneda: String
+-tipo: String
+-
++CuentaBancaria(String, String, String)
+-generarCBU(): String
++mostrarDatos(): void
++setAlias(String): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>260</x><y>310</y><w>180</w><h>50</h></coordinates><panel_attributes>Usamos + porque es 
+publico. Es el constructor.
+El metodo devuelve un String
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>260</x><y>190</y><w>140</w><h>40</h></coordinates><panel_attributes>Class name
+atributos
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>50</x><y>150</y><w>140</w><h>40</h></coordinates><panel_attributes>Podemos usar - o -- 
+para generar una linea
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>

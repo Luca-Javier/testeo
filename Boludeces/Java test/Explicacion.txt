@@ -1,0 +1,1 @@
+Hago test´s en java porque puedo manipular los tipos de datos y asi me fijo bien como funciona la programacion

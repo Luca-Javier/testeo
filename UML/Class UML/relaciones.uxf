@@ -1,0 +1,38 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>150</x><y>230</y><w>210</w><h>130</h></coordinates><panel_attributes>Auto
+-
+-patente: String
+-marca: String
+-precio: double
+-color: String
+-
++Auto(String, String, double, String)
+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>150</x><y>440</y><w>210</w><h>190</h></coordinates><panel_attributes>Motor
+-
+-numero: String
+-cilindrada String
+-tipo: double
+-
++Motor(String, double, String)
+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>310</y><w>90</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=	1
+-motor</panel_attributes><additional_attributes>70;130;10;130;10;10;70;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>230</y><w>210</w><h>150</h></coordinates><panel_attributes>Auto
+-
+-patente: String
+-marca: String
+-precio: double
+-color: String
+-motor: Motor
+-
++Auto(String, String, double, String)
+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>180</x><y>150</y><w>140</w><h>70</h></coordinates><panel_attributes>Con relacion</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>450</x><y>150</y><w>140</w><h>70</h></coordinates><panel_attributes>Sin relación, pero 
+con la clase tal cual
+como estaría en el 
+código</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>140</x><y>40</y><w>500</w><h>70</h></coordinates><panel_attributes>Que se entiende mas facil?
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>360</x><y>450</y><w>140</w><h>80</h></coordinates><panel_attributes>Calculo que tengo que
+entender que esta
+clase motor va a ser
+una atriuto de la clase
+auto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>0</x><y>460</y><w>150</w><h>70</h></coordinates><panel_attributes>En esta herramienta, no 
+en UML general, se usa
+m1=x para ponerle un
+valor a la flecha</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>20</x><y>420</y><w>70</w><h>30</h></coordinates><panel_attributes>Relacion</panel_attributes><additional_attributes></additional_attributes></element></diagram>

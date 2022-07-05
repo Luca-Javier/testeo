@@ -38,9 +38,7 @@
 	width: 100%;
 	background-size: contain;
 	background-repeat: no-repeat;
-	filter: drop-shadow(
-		1rem 1rem 0.25rem orange
-	); /* se ajusta a los bordes de un PNG */
+	filter: drop-shadow(1rem 1rem 0.25rem orange); /* se ajusta a los bordes de un PNG */
 }
 .lineales1 {
 	margin: 0 120px;
@@ -104,12 +102,7 @@
 		green 50% 75%,
 		blue 75%
 	); /* con from cambio donde es 0 dando por echo que sabemos que es como un circulo */
-	background-image: conic-gradient(
-		from 90deg,
-		blue 33%,
-		white 33% 66%,
-		red 66%
-	);
+	background-image: conic-gradient(from 90deg, blue 33%, white 33% 66%, red 66%);
 }
 .rpLineal {
 } /* 1:08:36  me aburrí. Paso a darkmode*/
