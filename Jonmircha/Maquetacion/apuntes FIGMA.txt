@@ -1,0 +1,35 @@
+Al maquetar en FIGMA tenemos 5 pasos:
+
+1.Sketch: un boceto general, una lluvia de ideas
+
+2.Wireframes: crear indicadores EJ: en un frame en vez de poner una imagen, pongo un cuadrado con un texto adentro que dice "imagen" y la derehca pongo otro cuadrado pero que dice texto. Entonce sin buscar y poner la imagen y sin ponerme a escribir un texto, ya tengo a gran escala mazo menos como va a ser el layout.
+hasta acá mas que nada estamos checkeando que es lo que el cliente quiere
+
+3.Layout: Diseño grafico estatico, sin interacciones porque al hacerlas tendriamos que ponerles ya las animaciones o crear intereacciones simples pero luego ir mejorandolas pero sería un re lio.
+También ponemos las guias de estilos
+
+4.Prototipo Funcional: gracias a figma podemos hacer rapidamente un layout con interacciones, que es este paso
+
+5.Programar
+
+
+Metodología para figma:
+
+Jon recomienda el atomic design.
+Mazo menos explica sobre los componenetes. 
+Que podemos crear tipo estilos, luego botones y luego cabeceras y asi creando elementos creo un template y por ultimo lo vuelvo pagina.
+Ya entendí:
+aotomo: un nav EJ: dentro de un header tenemos un nav, barra de busqueda, logo, etc
+
+molecula: el header, el contenido de la pagina, una grid
+
+organismo: tener todas las moleculas que vamos a usar en una pagina. Es como tener el sitio sin armar, son legos
+
+template: los legos armados. Tengo ya un sitio que tiene links  va a otras paginas donde estan los otros organismo
+
+page: ya la pagina terminada con todas las imagenes, textos correctos, animaciones. Los estilo tecnicamente ya estan desde el atomo, si es que ya lo tenemos creado
+
+https://demo.patternlab.io/  esta pagina está re buena. Muestra ejemplos
+
+Como que lo de los atomos lo veo que se podria sumar al paso de wireframes. Como para que el cliente nos diga si le gustan las moleculas que usamos.
+Luego hasta el template recien pasamos al paso 3, layout y luego el page es el paso 4

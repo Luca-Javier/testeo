@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div {
+      background-color: red;
+
+    }
+
+    .div:focus {
+      background-color: blue;
+    }
+
+    .alert {
+      position: relative;
+      background-color: brown;
+      /* top: -300px; */
+      width: 30%;
+      height: 20vh;
+      margin: 0 auto;
+      /*  text-align: center; */
+      z-index: 999;
+    }
+
+    .alert input {
+      /* float: right;
+      margin-right: 10%; */
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 0 10% 5% 0;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <script src="Kcondiciones.js"></script> -->
+  <input type="text" class="txt" id="txtt" name="txxt">
+  <input type="button" class="btn" value="ON" onclick="focuss()">
+  <div class="div" tabindex="0">Hola</div>
+  <p class="txtt"></p>
+  <div class="alert">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <input type="button" value="hola">
+  </div>
+  <script>
+    const txt = document.querySelector(".div");
+    const btn = document.querySelector(".btn");
+
+    btn.addEventListener("click", () => {
+      txt.focus();
+    });
+    const txtt = document.querySelector(".txtt");
+    txtt.innerHTML = "hola";
+    /* function focuss() {
+      txt.focus();
+    } */
+    /* txt.focus(); */
+  </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-public class public_private {
+public class Kpublic_private {
   public static void main(String[] args) {
     Animal tobi = new Animal();
     tobi.ladrar();
