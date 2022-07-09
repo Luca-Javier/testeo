@@ -33,3 +33,24 @@ https://demo.patternlab.io/  esta pagina está re buena. Muestra ejemplos
 
 Como que lo de los atomos lo veo que se podria sumar al paso de wireframes. Como para que el cliente nos diga si le gustan las moleculas que usamos.
 Luego hasta el template recien pasamos al paso 3, layout y luego el page es el paso 4
+
+
+
+
+
+Anotaciones:
+
+Jon al crear un frame siempre usa grids y les da 16px por el font size que casi siempre tienen los navegadores.
+DUDA: la unica forma de variar la fuente es alterandolo?. Tipo en el celu, compu, navegador. Pero por default todos los navegadores tienen 16px?. Seguro que si, pero en verdad es mucha la gente; No la que confiura el navegador, pero si que configura el celu, como la abuela, diego o mas chiquito.
+Si deja margen tmb le pone 16px y en el espacio usa 32px.
+
+Al maquetar para mobile Jon agarra y usa el frame mas chiquito, así está seguro de que cubriendo el mas chiquito ya
+puede empzar a agrandar. El mas chiquito es de 320px(iPhone SE)
+
+En tablet lo mismo, usa el iPad mini y en desktop lo mismo con iMac.
+
+No entiendo muy bien lo de usar la grid de 16px. O sea en desktop usa las columnas que necesita y ya está
+
+Son muy imporantes los constrains al momento de escalar. IMPORTANTISIMO
+
+Al crear un estilo para nuestra librería podemos crear EJ: border/thin y esto crea un folder border con thin adentro
