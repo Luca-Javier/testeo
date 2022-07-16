@@ -54,3 +54,11 @@ No entiendo muy bien lo de usar la grid de 16px. O sea en desktop usa las column
 Son muy imporantes los constrains al momento de escalar. IMPORTANTISIMO
 
 Al crear un estilo para nuestra librería podemos crear EJ: border/thin y esto crea un folder border con thin adentro
+
+Tener los componentes en carpetitas con las diagonales tiene ventajas EJ: tengo un icono y al darle click derecho tengo una opcion de cambiar instantanemente y me aparecen los demás componenentes que están en la misma carpeta.
+Si yo instancio mi componente que tiene un texto y un icono. Al texto puedo cambiarlo pero al icono no porque tendría que eliminarlo  poner el que quiero y no puedo romper mi componente sin 
+
+Si nos fijamos en la pagina de jonmircha vemos que tiene un max width en toda la pagina de mazo menos 1200px. O sea que calculo que si yo hago un diseño desktop en la pantalla mas chiquita de desktop y con css hago que cresca un poquito ya está, no hace falta que cresca y que se adapta a la pantalla mas grande del mundo.
+Estos detalles los tienen muchisimas paginas y almenos yo ni cuenta me doy.
+
+El desktop que usamos tiene 1280 de ancho y por eso vamos a usar margenes de 40 para que quede un max width de 1200
