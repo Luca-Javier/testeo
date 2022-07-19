@@ -1,0 +1,148 @@
+/* ----------------Variables---------------- */
+:root {
+	/* Creo que jon los llama first color y asi porque despues cambia las colores y ya los 
+  componentes tmb */
+	--color-fuxia: #d90062;
+	--color-pink: rgba(217, 0, 98, 0.75);
+	--color-purple: #501464;
+	--color-purple_alpha: rgba(80, 20, 100, 0.75);
+	--color-black_blue: #14192d;
+	--color-black_blue_alpha: rgba(20, 25, 45, 0.75);
+	--color-white: #ffffff;
+	--color-grey_light: #f3f3f3;
+	--color-grey: #cccccc;
+	--color-grey_dark: #666666;
+	--color-black: #000000;
+	--color-link: #509ee3;
+	--color-text: #222222;
+	--color-title: #333333;
+	--color-white_alpha: rgba(255, 255, 255, 0.5);
+	--color-black_alpha: rgba(0, 0, 0, 0.5);
+	--font: "Raleway", sans-serif;
+	--max-width: 1200px;
+	--header-height: 4rem;
+}
+/* ----------------Reset---------------- */
+html {
+	scroll-behavior: smooth;
+	font-size: 16px; /* esto sobreescribe los tamaños asignados a los encabezados */
+	font-family: var(--font);
+	color: var(--color-text);
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+a {
+	color: var(--color-link);
+	transition: all 0.5s ease-out;
+}
+a:hover {
+	opacity: 75%;
+}
+p {
+	line-height: 1.6;
+}
+img {
+	max-width: 100%;
+	/* height: auto; */
+}
+h1 {
+	margin: 0;
+	font-size: 2rem;
+}
+h2 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+h3 {
+	margin: 0;
+	font-size: 1.25rem;
+}
+h4 {
+	margin: 0;
+	font-size: 1rem;
+}
+h5 {
+	margin: 0;
+	font-size: 0.85rem;
+}
+h6 {
+	margin: 0;
+	font-size: 0.7rem;
+}
+
+/* ----------------Componentes---------------- */
+/* ***************Menu*************** */
+.menu-btn {
+	fill: var(--color-fuxia); /* para cambiar el color de un svg */
+}
+.menu {
+	position: fixed; /* pierde el width */
+	left: 0;
+	bottom: -500px;
+	width: 100%;
+	background-color: var(--color-black_blue);
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	transition: bottom 1s;
+	z-index: 991;
+}
+.menu.inBottom {
+	bottom: var(--header-height);
+}
+.menu a {
+	text-decoration: none;
+	color: var(--color-fuxia);
+	padding: 1rem;
+	width: 100%;
+}
+.menu a:hover {
+	color: var(--color-white);
+	background-color: var(--color-fuxia);
+}
+/* ----------------Utilidades---------------- */
+.box-shadow-in {
+	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+.none {
+	display: none;
+}
+.conteiner {
+	margin: 0 auto;
+	max-width: var(--max-width);
+}
+/* ----------------Estilos---------------- */
+.header {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 990;
+	height: var(--header-height);
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--color-black_blue);
+}
+.header .conteiner {
+	display: flex;
+	justify-content: space-between;
+	/* align-items: center; */
+	/* height: 100%; */
+}
+.logo,
+.menu-btn {
+	z-index: 992;
+}
+.logo a {
+	color: var(--color-fuxia);
+	text-decoration: none;
+}
+.menu-btn svg {
+	height: 2rem;
+}

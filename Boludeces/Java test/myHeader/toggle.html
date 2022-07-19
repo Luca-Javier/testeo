@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <style>
+    .div1 {
+      height: 100px;
+      background-color: steelblue;
+      max-width: 100px;
+      margin: 0 auto;
+      bottom: thin solid black;
+    }
+
+    .bg {
+      background-color: aquamarine;
+    }
+
+    .bg- {
+      opacity: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      position: fixed;
+      transition: opacity .4s;
+      background-color: rgba(66, 64, 64, 0.753);
+      z-index: -1;
+    }
+
+    .isActive {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <button class="btn1">change</button> -->
+  <div class="btn1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path
+        d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+    </svg>
+  </div>
+
+  <div class="div1"></div>
+  <div class="bg-"></div>
+  <header class="header">
+
+    <!-- el header ponele tiene el bg, pero el conteiner tiene el max width -->
+    <div class="conteiner">
+      <!-- Noto que jon encierra todo en divs. -->
+      <div class="logo">
+        <h1><a href="index.html#home">Javier</a></h1>
+      </div>
+      <div class="menu-btn">
+        <svg class="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z" />
+        </svg>
+      </div>
+
+      <div class="menu">
+
+        <a href="#inicio">
+          <h2>Inicio</h2>
+        </a>
+        <a href="#acerca">
+          <h2>Acerca</h2>
+        </a>
+        <a href="#servicios">
+          <h2>Servicios</h2>
+        </a>
+        <a href="#portafolio">
+          <h2>Portafolio</h2>
+        </a>
+        <a href="#referentes">
+          <h2>Referentes</h2>
+        </a>
+        <a href="#contacto">
+          <h2>Contacto</h2>
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+
+
+  <!-- <script src="scrpit.js"></script> -->
+  <script src="myScrpit.js"></script>
+  <script>
+    const btn1 = document.querySelector(".btn1");
+    const div1 = document.querySelector(".div1");
+
+    btn1.addEventListener("click", () => {
+      div1.classList.toggle("bg");
+    });
+  </script>
+</body>
+
+</html>

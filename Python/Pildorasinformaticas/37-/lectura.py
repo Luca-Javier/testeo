@@ -83,3 +83,14 @@ b.seek(0)
 """ GUARDA QUE HAY READLINE Y READLINESSSS """
 b_list = b.readlines()
 print(b_list)
+b_list[1] = "segunda linea modificada"
+print(b_list)
+b.seek(0)
+""" writelines es para escibir una lista pero no es que cada elemento tiene su linea. Eso depende
+de si tienen el \n """
+b.writelines(b_list)
+b.close()
+b = open("writelines.txt", "a")
+b.seek(0)
+b.write("agrego")
+""" aunque ponga seek 0 agrega al final al ser append """
