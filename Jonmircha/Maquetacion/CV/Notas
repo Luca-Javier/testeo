@@ -4,4 +4,10 @@ con el titulo comentado. Sería como copiar un componente de bootstrap, tal cual
 Ahora tambien se me ocurre que los colores no tengo que tener todos los colores, tengo que
 tener como mucho 3 colores que voy a usar, y unas variaciones. Despues utilidades tipo
 link color.
-Jon usa 3 colores y su version alpha(75% opacity)
+Jon usa 3 colores y su version alpha(75% opacity).
+
+la clase btn es una utilidad, calculo yo, porque me convierte cualquier cosa en un boton.
+En este caso un <a>.
+  Yo pensaba que hero-image iba a ser una utilidad pero al final fue un componente.
+  Creo que tenemos que pensar en el diseño ese atomico. Las utilidades serían cositas y
+  todo junto es un componente

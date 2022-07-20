@@ -1,13 +1,20 @@
 /* ***************Variables*************** */
 :root {
-	/* Creo que jon los llama first color y asi porque despues cambia las colores y ya los 
-  componentes tmb */
-	--color-fuxia: #d90062;
-	--color-pink: rgba(217, 0, 98, 0.75);
-	--color-purple: #501464;
-	--color-purple_alpha: rgba(80, 20, 100, 0.75);
-	--color-black_blue: #14192d;
-	--color-black_blue_alpha: rgba(20, 25, 45, 0.75);
+	/* variables */
+	--color-first: #d90062;
+	--color-first_alpha: rgba(217, 0, 98, 0.75);
+	--color-second: #501464;
+	--color-second_alpha: rgba(80, 20, 100, 0.75);
+	--color-third: #14192d;
+	--color-third_alpha: rgba(20, 25, 45, 0.75);
+	--font: "Raleway", sans-serif;
+	--max-width: 1200px;
+	--hero-image-first: url(assets/miFondo.jpg);
+	--hero-image-second: url(assets/hero-image-customers.jpg);
+	/* variables reutilisables??? */
+	--header-height: 4rem;
+	--header-child-height: 2rem;
+	/* fijas */
 	--color-white: #ffffff;
 	--color-grey_light: #f3f3f3;
 	--color-grey: #cccccc;
@@ -18,9 +25,8 @@
 	--color-title: #333333;
 	--color-white_alpha: rgba(255, 255, 255, 0.5);
 	--color-black_alpha: rgba(0, 0, 0, 0.5);
-	--font: "Raleway", sans-serif;
-	--max-width: 1200px;
-	--header-height: 4rem;
+	--bg-opacity_dark: var(--color-black_alpha);
+	--bg-opacity_light: var(--color-white_alpha);
 }
 /* ***************Reset*************** */
 html {
@@ -40,7 +46,7 @@ body {
 }
 a {
 	color: var(--color-link);
-	transition: all 0.5s ease-out;
+	/* transition: all 0.5s ease-out; */
 }
 a:hover {
 	opacity: 75%;
@@ -50,7 +56,6 @@ p {
 }
 img {
 	max-width: 100%;
-	/* height: auto; */
 }
 h1 {
 	margin: 0;
@@ -78,16 +83,17 @@ h6 {
 }
 
 /* ***************Componentes*************** */
-/* ----------------Menu---------------- */
+/* ----------------Menu_burguer_mobile---------------- */
 .menu-btn {
-	fill: var(--color-fuxia); /* para cambiar el color de un svg */
+	height: var(--header-child-height);
+	fill: var(--color-first); /* para cambiar el color de un svg */
 }
 .menu {
 	position: fixed; /* pierde el width */
 	left: 0;
 	bottom: -500px;
 	width: 100%;
-	background-color: var(--color-black_blue);
+	background-color: var(--color-third);
 	display: flex;
 	flex-flow: column;
 	text-align: center;
@@ -99,13 +105,13 @@ h6 {
 }
 .menu a {
 	text-decoration: none;
-	color: var(--color-fuxia);
+	color: var(--color-first);
 	padding: 1rem;
 	width: 100%;
 }
 .menu a:hover {
 	color: var(--color-white);
-	background-color: var(--color-fuxia);
+	background-color: var(--color-first);
 }
 .menu-bg {
 	opacity: 0;
@@ -115,8 +121,55 @@ h6 {
 	left: 0;
 	position: fixed;
 	transition: opacity 0.4s;
-	background-color: rgba(66, 64, 64, 0.753);
-	z-index: -1;
+	background-color: var(--bg-opacity_dark);
+}
+@media screen and (min-width: 1024px) {
+	.menu-btn,
+	.menu-bg {
+		display: none;
+	}
+	.menu {
+		text-align: end;
+		width: auto;
+		position: static;
+		flex-flow: row;
+		opacity: 1;
+		pointer-events: auto;
+		align-items: center;
+		transition: none;
+	}
+	.menu a {
+		padding: 0rem 1rem;
+	}
+	.menu a:last-child {
+		padding-right: 0;
+	}
+	.menu a:hover {
+		background-color: initial;
+	}
+}
+/* ----------------Hero-Image---------------- */
+.hero-image-conteiner {
+	background-image: var(--hero-image-first);
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+.hero-image-opacity {
+	width: 100%;
+	min-height: 100%;
+	background-color: var(--bg-opacity_dark);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	color: var(--color-white);
+	text-align: center;
+}
+.hero-image-opacity h2 {
+	font-size: 7.5vw;
 }
 /* ***************Estados*************** */
 .isActive {
@@ -134,6 +187,20 @@ h6 {
 	margin: 0 auto;
 	max-width: var(--max-width);
 }
+.btn {
+	border-radius: 0.5rem;
+	padding: 1rem;
+	background-color: var(--color-first);
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	color: var(--color-white);
+	text-decoration: none;
+	font-weight: bold;
+}
+.no-select {
+	user-select: none;
+}
 /* ***************Estilos*************** */
 .header {
 	position: fixed;
@@ -143,22 +210,36 @@ h6 {
 	height: var(--header-height);
 	width: 100%;
 	padding: 1rem;
-	background-color: var(--color-black_blue);
+	background-color: var(--color-third);
 }
 .header .conteiner {
 	display: flex;
 	justify-content: space-between;
-	/* align-items: center; */
-	/* height: 100%; */
 }
 .logo,
 .menu-btn {
 	z-index: 992;
 }
+.logo a:hover {
+	opacity: 1;
+}
 .logo a {
-	color: var(--color-fuxia);
+	color: var(--color-first);
 	text-decoration: none;
 }
 .menu-btn svg {
-	height: 2rem;
+	height: var(--header-child-height);
+}
+@media screen and (min-width: 768px) {
+	/* en figma la table mida 744px. Le agrego 24px */
+}
+@media screen and (min-width: 1024px) {
+	/* Ibamos a usar 1200 pero al final 1024. Puede ser que sea 1200 el max y 1024 el min para
+  ya no se tablet */
+	.header {
+		position: sticky;
+		top: 0;
+		padding: 0.5rem;
+		height: calc(var(--header-height)- 0.5rem);
+	}
 }
