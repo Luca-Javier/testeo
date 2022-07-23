@@ -1,0 +1,28 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>950</x><y>220</y><w>210</w><h>190</h></coordinates><panel_attributes>operaciones(op)
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>30</x><y>220</y><w>300</w><h>210</h></coordinates><panel_attributes>                                  Operaciones
+--
+Dependediendo de la operacion va a hacer la que
+le corresponda 
+--
+Cuando aprete la op me manda al registro lo que 
+había junto al signo de la operacion y me deja calc
+vacío
+--
+Que no se pueda usar 2 veces seguidas una 
+operación
+--
+(QUIZAS) que el numero se quede hasta que escriba
+otro y se reinicie el calc
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>30</x><y>690</y><w>290</w><h>150</h></coordinates><panel_attributes>                                 Borrar todo
+--
+va a guardar lo que estaba en calc para ponerlo
+en el registro
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>30</x><y>510</y><w>290</w><h>90</h></coordinates><panel_attributes>                                     Igualar
+--
+va a guardar lo que estaba en calc para ponerlo
+en el registro
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>230</y><w>210</w><h>190</h></coordinates><panel_attributes>Sumar
+--
+estabaEnCalc: String
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

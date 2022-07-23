@@ -11,6 +11,10 @@
 	--max-width: 1200px;
 	--hero-image-first: url(assets/miFondo.jpg);
 	--hero-image-second: url(assets/hero-image-customers.jpg);
+	--card-icon-max-width: 5rem;
+	--margin-small-section: 1rem;
+	--margin-lg-section: 2rem;
+	--margin-article-vertical: 1rem 0;
 	/* variables reutilisables??? */
 	--header-height: 4rem;
 	--header-child-height: 2rem;
@@ -27,6 +31,9 @@
 	--color-black_alpha: rgba(0, 0, 0, 0.5);
 	--bg-opacity_dark: var(--color-black_alpha);
 	--bg-opacity_light: var(--color-white_alpha);
+	/* Unicas */
+	--foto-mia: url(assets/fotoMia.jpg);
+	--foto-mia-position: 50%;
 }
 /* ***************Reset*************** */
 html {
@@ -156,6 +163,7 @@ h6 {
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
+	margin-bottom: 1rem;
 }
 .hero-image-opacity {
 	width: 100%;
@@ -170,6 +178,69 @@ h6 {
 }
 .hero-image-opacity h2 {
 	font-size: 7.5vw;
+}
+@media screen and (min-width: 1024px) {
+	.hero-image-conteiner {
+		margin-bottom: 2rem;
+	}
+}
+/* ----------------Information---------------- */
+
+.about > * {
+	margin: var(--margin-small-section);
+}
+
+.information {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.information > * {
+	margin: var(--margin-article-vertical);
+}
+.information-title {
+	text-align: center;
+}
+.myPhoto-conteiner {
+	max-height: 50vh;
+}
+.myPhoto {
+	background-image: var(--foto-mia);
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: var(--foto-mia-position);
+	filter: grayscale(1);
+	margin: var(--margin-article-vertical);
+}
+.skills {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.skills > * {
+	margin: var(--margin-article-vertical);
+}
+@media screen and (min-width: 1024px) {
+	.text-lg-right {
+		/* tipo bootrtrap */
+		text-align: right;
+		align-self: flex-end;
+	}
+	.text-lg-left {
+		text-align: left;
+		align-self: flex-start;
+		justify-self: flex-start;
+	}
+	.about {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.about > * {
+		margin: var(--margin-lg-section) 1rem;
+	}
 }
 /* ***************Estados*************** */
 .isActive {
@@ -201,6 +272,26 @@ h6 {
 .no-select {
 	user-select: none;
 }
+.card-icon {
+	max-width: var(--card-icon-max-width);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.card-icon img {
+	min-width: 5rem;
+}
+.icons-conteiner {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	text-align: center;
+	justify-items: center;
+}
+.title-h1 {
+	color: var(--color-title);
+	font-size: 2rem;
+}
 /* ***************Estilos*************** */
 .header {
 	position: fixed;
@@ -226,6 +317,7 @@ h6 {
 .logo a {
 	color: var(--color-first);
 	text-decoration: none;
+	font-size: 2rem;
 }
 .menu-btn svg {
 	height: var(--header-child-height);
