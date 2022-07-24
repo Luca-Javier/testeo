@@ -185,24 +185,14 @@ h6 {
 	}
 }
 /* ----------------Information---------------- */
-
-.about > * {
-	margin: var(--margin-small-section);
-}
-
 .information {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-.information > * {
-	margin: var(--margin-article-vertical);
-}
-.information-title {
 	text-align: center;
 }
 .myPhoto-conteiner {
-	max-height: 50vh;
+	height: 50vh;
 }
 .myPhoto {
 	background-image: var(--foto-mia);
@@ -212,7 +202,6 @@ h6 {
 	background-repeat: no-repeat;
 	background-position: var(--foto-mia-position);
 	filter: grayscale(1);
-	margin: var(--margin-article-vertical);
 }
 .skills {
 	display: flex;
@@ -220,26 +209,13 @@ h6 {
 	align-items: center;
 	text-align: center;
 }
-.skills > * {
-	margin: var(--margin-article-vertical);
-}
 @media screen and (min-width: 1024px) {
-	.text-lg-right {
-		/* tipo bootrtrap */
-		text-align: right;
-		align-self: flex-end;
-	}
-	.text-lg-left {
-		text-align: left;
-		align-self: flex-start;
-		justify-self: flex-start;
-	}
 	.about {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		display: flex;
+		align-items: center;
 	}
-	.about > * {
-		margin: var(--margin-lg-section) 1rem;
+	.about .conteiner > * {
+		margin: 0 0.5rem;
 	}
 }
 /* ***************Estados*************** */
@@ -257,6 +233,9 @@ h6 {
 .conteiner {
 	margin: 0 auto;
 	max-width: var(--max-width);
+}
+.w-100 {
+	width: 100%;
 }
 .btn {
 	border-radius: 0.5rem;
@@ -291,6 +270,29 @@ h6 {
 .title-h1 {
 	color: var(--color-title);
 	font-size: 2rem;
+}
+@media screen and (min-width: 1024px) {
+	.text-lg-right {
+		/* tipo bootrtrap */
+		text-align: right;
+		align-items: flex-end;
+	}
+	.text-lg-left {
+		text-align: left;
+		align-items: flex-start;
+	}
+	.text-lg-center {
+		text-align: center;
+		align-items: center;
+	}
+	.fullscreen-lg {
+		width: 100%;
+		min-height: 100vh;
+	}
+	.col-lg-3 {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 /* ***************Estilos*************** */
 .header {
